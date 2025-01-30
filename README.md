@@ -1,8 +1,9 @@
 # Standardized_CSV_Data_Analysis
-Course: ECE 370: Advanced Software Techniques in Computer Engineering 
-Author: David Richardson 
-Date: December 20th, 2024 (Fall 2024) 
-Institution: Department of Electrical & Computer Engineering, The University of Michigan Dearborn
+Course: ECE 370: Advanced Software Techniques in Computer Engineering <br />
+Author: David Richardson <br />
+Date: December 20th, 2024 (Fall 2024) <br />
+Institution: Department of Electrical & Computer Engineering, The University of Michigan Dearborn <br />
+
 
 ## 1. Statement of the Problem
 The purpose of this project is to design and implement a standardized C CSV data analysis program capable of:

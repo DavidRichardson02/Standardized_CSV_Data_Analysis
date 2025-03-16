@@ -611,8 +611,8 @@ integrate the extensive in-code comments to clarify each function’s role.
 - Coordinates the final pipeline steps: once data is “cleaned” and “plottable,” it
   can be analyzed in detail or modeled.
 - Creates or references directories for numeric data, calls
-  `extract_radix_sorted_data(...)`, and writes out advanced modeling scripts (like for
-  MATLAB).
+  `extract_radix_sorted_data(...)`, and writes out modeling scriptsb for
+  MATLAB.
 
 **Key Exports**:
 

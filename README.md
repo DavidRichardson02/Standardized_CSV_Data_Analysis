@@ -130,6 +130,25 @@ of many forms. Users can conveniently plug in new analysis scripts, numeric
 transformations, or domain-focused modeling routines, with confidence that the data
 have been cleaned and structured according to well-defined protocols.
 
+
+
+
+<img width="2056" alt="physics_particles_model" src="https://github.com/user-attachments/assets/a681d1cb-5709-4c01-8cb5-4d099206bc50" />
+
+
+
+
+
+
+
+
+
+<img width="2055" alt="weather_measurements_model" src="https://github.com/user-attachments/assets/58ad0442-5667-48c4-8163-adcd23014464" />
+
+
+
+
+
 ---
 
 ## 2. CSV Uniform Schema & Program Assumptions

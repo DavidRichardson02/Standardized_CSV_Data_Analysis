@@ -1,18 +1,31 @@
-# Standardized CSV Data Analysis Notes
+# Abstract
+In today's data-driven world, the ability to efficiently process and analyze large datasets is crucial. This project introduces a robust and standardized pipeline designed to handle the entire lifecycle of data from CSV files through a series of carefully orchestrated steps. By leveraging advanced techniques for data extraction, preprocessing, and statistical analysis, this project provides a comprehensive solution for transforming raw data into actionable insights.  
+
+The core logic of this project revolves around a structured and consistent pipeline that meticulously handles data from CSV files through multiple stages. This pipeline is designed to read, preprocess, evaluate, and organize data, thereby providing a structured methodology for transforming data into a usable format. Each stage of the pipeline serves a specific purpose in transforming raw data into meaningful insights, the first stage begins with reading raw CSV files, capturing input line by line and storing them in in-memory data structures. Special functions detect and handle various delimiters, ensuring accurate data capture.
+
+The preprocessing and cleaning stage addresses common data issues such as trimming problematic characters, standardizing date/time formats into Unix timestamps, and extracting units from numeric fields. As soon as columns are flagged as numeric, missing or invalid entries are replaced with suitable defaults to ensure valid contiguous data elements. 
+
+During the evaluation and extraction stage, the pipeline assesses each field to determine its type and suitability for plotting or special handling. This involves advanced techniques for type inference and dimensionality reduction for complex datasets. The organized data is then systematically written to structured directories, simplifying reuse by downstream scripts and statistical routines.
+
+The pipeline’s statistical routines iterate through each numeric column, generate and store results, and produce textual analysis summarizing each field’s key properties. Subsequent analysis applies a variety of methods—calculating standard statistics and descriptive measures, building histograms (e.g., via Freedman–Diaconis binning), and testing normality (e.g., Anderson–Darling)—to summarize each field's key properties. The modeling stage then builds on these clean numeric columns to visualize distributions for plots and fit sophisticated computational models, creating reusable MATLAB script files for further analysis.
+
+The framework excels in its modular design, dividing tasks such as string parsing, file handling, and statistical computation into distinct, manageable components. This uniform schema approach ensures that all data entries are cleaned and organized to adhere to established protocols, enhancing the reliability and repeatability of the analysis. The appeal of this framework lies in its extensibility and flexibility, where the standardized data directory structures become a reusable asset, allowing users to incorporate specialized transformations, new plotting backends, new analysis routines, transformations, or domain-specific modeling steps while being confident that the data remains uniformly shaped and reliably stored.
+
+Ultimately, the pipeline offers a repeatable, extensible framework to transform raw, inconsistent CSV data into clean, analyzable forms, ensuring each column is properly typed, extracted, and ready for advanced statistical study. This approach ensures a coherent, repeatable, and extensible environment for CSV-based data analysis, thus providing a versatile solution suitable for diverse data-driven applications.
 
 ---
 
 ## 1. Introduction & High-Level Overview
 
-The project provides a robust and standardized pipeline for reading, parsing,
-cleaning/preprocessing, analyzing, and modeling data from CSV (or similarly
+The project provides a robust and standardized pipeline for reading, parsing,  
+cleaning/preprocessing, analyzing, and modeling data from CSV (or similarly  
 delimited) files. The typical flow this pipeline is designed to handle:
 
 1. **Read Raw CSV:**
    - Input file lines are captured line by line and stored in-memory data
      structures (`char**`), with special functions to detect delimiters (commas,
      semicolons, tabs, etc.).
-
+<br /><br />
 2. **Preprocess & Clean:**
    - Identifying and trimming problematic characters such as whitespaces,
      repeated delimiters, placeholder or missing-value markers (many cases),
@@ -24,9 +37,8 @@ delimited) files. The typical flow this pipeline is designed to handle:
    - Extracting and/or standardizing units attached to numeric fields (link to
      documentation in `StringUtilities.h/c`).
 
-<br />
-<br />
-
+<br /><br />
+<br /><br />
 3. **Evaluate and Extract:**
    - The parameters of each field and identify which fields are plottable and
      which might need special handling using type inference.
@@ -46,15 +58,12 @@ delimited) files. The typical flow this pipeline is designed to handle:
      instance, very complex or high-dimensional data may require advanced
      techniques or dimensionality reduction methods to be effectively
      visualized which is largely not within the scope or purpose of this project.
+
 <br />
-     
 <img width="944" alt="Screenshot 2025-03-19 at 11 16 34 AM" src="https://github.com/user-attachments/assets/abb129d0-67fb-455a-9b96-da0b38d4b331" />
-
 <br />
-<img width="936" alt="Screenshot 2025-03-19 at 11 11 49 AM" src="https://github.com/user-attachments/assets/8af51494-67ce-4fa1-a45c-50d299f61e7b" />
-
-<br />
-<br />
+<br /><br />
+<br /><br />
 4. **Organize Data into Structured Directories**
    - Once field types are identified, each field’s data is split out and
      systematically written to a dedicated file within a custom generated
@@ -78,12 +87,11 @@ delimited) files. The typical flow this pipeline is designed to handle:
      - Data set file: “physics_particles.txt”  
      - Order/Index: Seventh among all fields and fourth among plottable fields  
      - Name (index from zero):  
-       **“physics_particles_Plottable_Field_3-mass.txt”**  
+       **“physics_particles_Plottable_Field_3-mass.txt”**
 
    - Non-numeric columns (e.g., text descriptions) are also preserved in their
      own consistent structure, maintaining a one-to-one correspondence
      between row indices.
-
    - As the dataset grows or new columns appear, the directory structure
      simply expands and prunes itself accordingly. Such compartmentalized
      outputs facilitate advanced or domain-specific analysis steps with
@@ -92,15 +100,11 @@ delimited) files. The typical flow this pipeline is designed to handle:
      future transformations or data processing features.
 
 <br />
-
 <img width="442" alt="Screenshot 2025-03-15 at 9 29 39 PM" src="https://github.com/user-attachments/assets/fab982e4-33b1-4708-8bed-da884888b411" />
 <br />
-
 <img width="602" alt="Screenshot 2025-03-19 at 10 56 04 AM" src="https://github.com/user-attachments/assets/9cf40b34-a260-4fcb-ba17-0061f355fe3d" />
+<br /><br />
 
-
-<br />
-<br />
 5. **Analyze:**
    - Once the numeric columns have been isolated in separate files, the
      program computes a variety of standard statistics and descriptive
@@ -122,16 +126,10 @@ delimited) files. The typical flow this pipeline is designed to handle:
      (in its own file) and a companion analysis file detailing its statistical
      properties.
 
-
-
-
 <br />
-
 <img width="437" alt="Screenshot 2025-03-15 at 9 59 53 PM" src="https://github.com/user-attachments/assets/b5b8020d-ffd9-448b-ad6e-78545030c904" />
-
-<br />
-<br />
-
+<br /><br />
+<br /><br />
 6. **Model (NOT COMPLETE IN PROGRAM, WIP):**
    - The program’s modeling phase builds upon these clean numeric columns
      to generate more advanced plots or fit more sophisticated computational
@@ -153,13 +151,10 @@ delimited) files. The typical flow this pipeline is designed to handle:
      by ensuring that the data’s shape and types remain coherent from initial
      ingestion through final curve-fitting routines.
 
-
-
-<br />
-<br />
+<br /><br />
 **Final Output in Terminal and Models Visualized in MATLAB**
 
-
+<br /><br />
 
 
 
@@ -357,26 +352,6 @@ delimited) files. The typical flow this pipeline is designed to handle:
 
 
 
-***********************************************************************
- Preliminary extraction and preprocessing of data set complete.
-		Summary: Preprocessed the data set to ensure operational compatibility throughout the program. 
-Extracting and formatting the contents of the data set achieved by having: 
-		1. Extracted the data set contents into an array of strings.
-		2. Pruned and trimmed the data set contents to remove problematic characters.
-		3. Organized entries of the file corresponding to the expected line order of header and data entries.
-		4. Parsed the file contents to independently capture all entries for each of the data set's fields.
-		5. Categorized the data parameters into plottable and unplottable values.
-		6. Created directories for plottable fields of data entries, named & located with respect to the original file.
-		7. Data conditionally written into files for each field, named & placed in accordance with the aforementioned directory and nomenclature.
-
-***********************************************************************
-
-
-
-
-
-
-
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
@@ -429,11 +404,6 @@ Extracting and formatting the contents of the data set achieved by having:
         		283  
 
 
-Error: Interquartile range is zero. Choose a different binning method, in 'compute_IQR'.Error creating MATLAB plot script: /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/\320\224_plot.m
-Error creating MATLAB plot script: /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/\360\200\224_plot.m
-Error creating MATLAB plot script: /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/\200\202d_plot.m
-
-
 
 
 
@@ -462,10 +432,8 @@ Error creating MATLAB plot script: /Users/98dav/Desktop/Xcode/ECE-370_Project/EC
  	      mass_normality
  	      width_upper_plot
  	      width_full_analysis
- 	      (null)_plot
  	      pdg_id_normality
  	      mass_upper_full_analysis
- 	      _plot
  	      mass_lower_normality
  	      width_lower_plot
  	      width_lower_full_analysis
@@ -489,7 +457,6 @@ Error creating MATLAB plot script: /Users/98dav/Desktop/Xcode/ECE-370_Project/EC
  	      rank_normality
  	      width_lower_histogram
  	      width_normality
- 	      @$_plot
  	      mass_lower_statsrank_plot
  	      rank_plot
  	      width_upper_histogram
@@ -653,147 +620,167 @@ Error creating MATLAB plot script: /Users/98dav/Desktop/Xcode/ECE-370_Project/EC
 
 
 ```
+
 <br />
+<br /><br />
 <br />
+
 <img width="2056" alt="physics_particles_model" src="https://github.com/user-attachments/assets/a681d1cb-5709-4c01-8cb5-4d099206bc50" />
 
 <br />
+
 <img width="2055" alt="weather_measurements_model" src="https://github.com/user-attachments/assets/58ad0442-5667-48c4-8163-adcd23014464" />
 
-
-
 <br />
 <br />
-
-
+<br /><br />
 **Summary**:  
-By successively reading, preprocessing, extracting numeric fields into
-directories, then systematically analyzing and modeling those fields, these stages
-deliver a coherent, repeatable, and extensible environment for CSV-based data analysis
-of many forms. Users can conveniently plug in new analysis scripts, numeric
-transformations, or domain-focused modeling routines, with confidence that the data
+
+By successively reading, preprocessing, extracting numeric fields into  
+directories, then systematically analyzing and modeling those fields, these stages  
+deliver a coherent, repeatable, and extensible environment for CSV-based data analysis  
+of many forms. Users can conveniently plug in new analysis scripts, numeric  
+transformations, or domain-focused modeling routines, with confidence that the data  
 have been cleaned and structured according to well-defined protocols.
 
-
 <br />
 <br />
 <br />
-
-
 
 ---
-
+<br /><br />
+<br /><br />
 ## 2. CSV Uniform Schema & Program Assumptions
 
-The objective of this documentation is to elucidate the consistent and uniform
-logical framework governing the representation and description of data in a Comma-
-Separated Values (CSV) file. This framework emphasizes the uniform parameterization
-of data entries by a consistent set of fields, and how the program effectively utilizes this
-structure. Enclosed below is an overview of the project’s approach to CSV data,
-ensuring consistency and uniformity. This approach consistently treats each row as a
-parameterized set of fields that directly correspond to a declared schema. The program
+The objective of this documentation is to elucidate the consistent and uniform  
+logical framework governing the representation and description of data in a Comma-  
+Separated Values (CSV) file. This framework emphasizes the uniform parameterization  
+of data entries by a consistent set of fields, and how the program effectively utilizes this  
+structure. Enclosed below is an overview of the project’s approach to CSV data,  
+ensuring consistency and uniformity. This approach consistently treats each row as a  
+parameterized set of fields that directly correspond to a declared schema. The program  
 effectively leverages this structured representation.
 
-Below is the overarching philosophy and assumptions the project uses when
-interpreting CSV files (NOTE: How the analysis and modeling phases leverage this
+Below is the overarching philosophy and assumptions the project uses when  
+interpreting CSV files (NOTE: How the analysis and modeling phases leverage this  
 uniform schema is omitted here for brevity.):
-
+<br /><br />
 1. **Interpreting the CSV Structure:**
-   - By convention, the first line of the CSV is the header line, the number of
-     comma-separated fields in this header is fixed; subsequent rows must
+
+   - By convention, the first line of the CSV is the header line, the number of  
+     comma-separated fields in this header is fixed; subsequent rows must  
      match that count.
-   - Each element in this header is understood to be the “field name,” and all
-     subsequent lines (or rows) contain data entries aligned with these field
-     names. In essence, the CSV is conceived of as a table where columns are
-     fixed, in both count and meaning, and each row must fill in every
+
+   - Each element in this header is understood to be the “field name,” and all  
+     subsequent lines (or rows) contain data entries aligned with these field  
+     names. In essence, the CSV is conceived of as a table where columns are  
+     fixed, in both count and meaning, and each row must fill in every  
      column’s value (or mark it as missing).
-   - The project’s code explicitly enforces that the header’s number of
-     character-delimited fields remains consistent with the number of fields
+
+   - The project’s code explicitly enforces that the header’s number of  
+     character-delimited fields remains consistent with the number of fields  
      recognized in every subsequent data row.
-   - Internally, each field (column) is assigned a type label (“numeric” or
-     “nonnumeric”), which is inferred from the CSV contents. The program
+
+   - Internally, each field (column) is assigned a type label (“numeric” or  
+     “nonnumeric”), which is inferred from the CSV contents. The program  
      uses that labeling, for instance, to decide which columns can be plotted.
-
+<br /><br />
 2. **Uniform Parameterization by Field Count:**
-   - The code that parses a CSV enforces a single, consistent set of fields
-     across all data entries. This is accomplished by counting how many
-     comma-delimited (or otherwise similarly-delimited) segments appear in
-     the first line, then ensuring each of the following lines matches that count.
+
+   - The code that parses a CSV enforces a single, consistent set of fields  
+     across all data entries. This is accomplished by counting how many  
+     comma-delimited (or otherwise similarly-delimited) segments appear in  
+     the first line, then ensuring each of the following lines matches that count.  
      In short, every row is parameterized by the same set of column names.
-   - When the code parses a file, it reads the first line (the header) to establish
+
+   - When the code parses a file, it reads the first line (the header) to establish  
      `fieldCount`.
-   - The next lines are split on the same delimiter into exactly `fieldCount`
+
+   - The next lines are split on the same delimiter into exactly `fieldCount`  
      tokens each.
+
    - Each row’s data is aligned to the corresponding field name in the header.
-   - This consistency is key for ensuring that if, say, column 2 is “mass,” then
-     every row can supply a value for mass (or explicitly mark it missing). It also
+
+   - This consistency is key for ensuring that if, say, column 2 is “mass,” then  
+     every row can supply a value for mass (or explicitly mark it missing). It also  
      underpins plottability checks, missing-value strategies, and so on.
-
+<br /><br />
 3. **Coupling Field Names with Data Types:**
-   - Beyond simply splitting data into columns, the project code adds a
-     further type annotation stage for each field. Specifically, the program
-     “looks” at the second line (i.e., the first data row after the header) to
-     guess whether each column is numeric or nonnumeric to form an initial
-     guess and will then compare this guess against every other data entry’s
-     corresponding column to ensure accurate type inference.
-   - An internal representation of each column is constructed like
-     `"FieldName:numeric"` or `"FieldName:nonnumeric"`, where a field will only
-     be declared as nonnumeric once all potential numeric representations of
-     that field’s contents have been ruled out (e.g., scientific notation, signs,
-     decimals, etc.).
-   - This pairing is used throughout the rest of the workflow—plotting
-     routines, integrators, analysis modules, etc.—so that code can quickly
-     check if a field is “plottable.”
-   - Numeric columns are “plottable” and can be taken for further analysis
-     without significant refactoring. Nonnumeric columns are stored but not
-     fed to numeric-only analysis routines.
 
-4. **Preprocessing**:  
-   This preprocessing phase underpins the entire program’s
-   compatibility with data and is what makes the standardization of data
+   - Beyond simply splitting data into columns, the project code adds a  
+     further type annotation stage for each field. Specifically, the program  
+     “looks” at the second line (i.e., the first data row after the header) to  
+     guess whether each column is numeric or nonnumeric to form an initial  
+     guess and will then compare this guess against every other data entry’s  
+     corresponding column to ensure accurate type inference.
+
+   - An internal representation of each column is constructed like  
+     `"FieldName:numeric"` or `"FieldName:nonnumeric"`, where a field will only  
+     be declared as nonnumeric once all potential numeric representations of  
+     that field’s contents have been ruled out (e.g., scientific notation, signs,  
+     decimals, etc.).
+
+   - This pairing is used throughout the rest of the workflow—plotting  
+     routines, integrators, analysis modules, etc.—so that code can quickly  
+     check if a field is “plottable.”
+
+   - Numeric columns are “plottable” and can be taken for further analysis  
+     without significant refactoring. Nonnumeric columns are stored but not  
+     fed to numeric-only analysis routines.
+<br /><br />
+4. **Preprocessing**:
+
+   This preprocessing phase underpins the entire program’s  
+   compatibility with data and is what makes the standardization of data  
    analysis possible in my approach.
 
-   - Primarily concerned with enforcing a dynamic tracking of data quality to
-     ensure compatibility throughout the program, the preprocessing phase
-     blindly accepts all contents of the stored data set and enforces the
+   - Primarily concerned with enforcing a dynamic tracking of data quality to  
+     ensure compatibility throughout the program, the preprocessing phase  
+     blindly accepts all contents of the stored data set and enforces the  
      declared data type.
-   - If a column is expected numeric but the CSV row’s token is nonnumeric
-     (other than a “missing” hyphen), the code replaces it with a default
-     numeric placeholder (e.g., 0.0) to keep arrays consistent so all numeric
+
+   - If a column is expected numeric but the CSV row’s token is nonnumeric  
+     (other than a “missing” hyphen), the code replaces it with a default  
+     numeric placeholder (e.g., 0.0) to keep arrays consistent so all numeric  
      columns remain valid and their relative order maintained.
-   - Each column in each row, tallies how many entries are blank (“-”) or
-     otherwise have some mismatch (e.g., expected numeric but found
-     nonnumeric)—again possible because all rows present the same columns
+
+   - Each column in each row, tallies how many entries are blank (“-”) or  
+     otherwise have some mismatch (e.g., expected numeric but found  
+     nonnumeric)—again possible because all rows present the same columns  
      in order.
-   - **Result**: For each field, the program knows (a) if it is numeric (plottable) or
-     not, (b) how many missing/malformed entries occur, and (c) if it might
-     need further transformation (i.e., date/time → Unix time… see
-     `StringUtilities.h` documentation, isolated extraction of units, expanding
+
+   - **Result**: For each field, the program knows (a) if it is numeric (plottable) or  
+     not, (b) how many missing/malformed entries occur, and (c) if it might  
+     need further transformation (i.e., date/time → Unix time… see  
+     `StringUtilities.h` documentation, isolated extraction of units, expanding  
      scientific notation `1e5` → `10000`, etc.).
-
-The uniform schema approach is central. From the assumptions it enforces, the rest of
-the program can reliably parse, clean, analyze, and model the data using the same
-structured assumption: all rows must provide the same fields, in the same order, typed
-consistently. This “once interpreted, consistently used” approach cuts down on
-guesswork or repeated parsing at every analysis step, but it requires a comprehensive
-and exhaustive transformation of data into what the program and its assumptions
+<br /><br />
+The uniform schema approach is central. From the assumptions it enforces, the rest of  
+the program can reliably parse, clean, analyze, and model the data using the same  
+structured assumption: all rows must provide the same fields, in the same order, typed  
+consistently. This “once interpreted, consistently used” approach cuts down on  
+guesswork or repeated parsing at every analysis step, but it requires a comprehensive  
+and exhaustive transformation of data into what the program and its assumptions  
 consider compatible.
-
+<br /><br />
 ### Why It Matters
 
-1. **Data Consistency**: By enforcing a strict header and field matching, the project
+1. **Data Consistency**: By enforcing a strict header and field matching, the project  
    avoids mid-file re-interpretations or inconsistent row lengths.
-2. **Enhanced Analysis**: This uniformity underpins consistent downstream operations
-   —statistical integrators know exactly how many numeric columns exist and can
-   skip nonnumeric columns, while plotting routines can extract “x” and “y” values
+
+2. **Enhanced Analysis**: This uniformity underpins consistent downstream operations  
+   —statistical integrators know exactly how many numeric columns exist and can  
+   skip nonnumeric columns, while plotting routines can extract “x” and “y” values  
    by name, counting on consistent ordering.
-3. **Modularity**: Each step in the pipeline—reading, cleaning, labeling, extracting
-   numeric columns, generating analysis scripts—is encapsulated in its own
-   function or set of functions, making it easy to replace, extend, or even refactor
+
+3. **Modularity**: Each step in the pipeline—reading, cleaning, labeling, extracting  
+   numeric columns, generating analysis scripts—is encapsulated in its own  
+   function or set of functions, making it easy to replace, extend, or even refactor  
    steps in operation without affecting the larger system.
 
 ---
-
+<br /><br />
+<br /><br />
 ## 3. Detailed Pipeline Explanation (WIP documenting)
 
 Below is a comprehensive, end-to-end guide covering every header/source file
@@ -803,7 +790,7 @@ structures, and how it interacts with the rest of the program. Where relevant, I
 integrate the extensive in-code comments to clarify each function’s role.
 
 ---
-
+<br /><br />
 ### 1. CommonDefinitions.h/.c
 
 **Purpose**:
@@ -858,7 +845,7 @@ integrate the extensive in-code comments to clarify each function’s role.
   used by the macros.
 
 ---
-
+<br /><br />
 ### 2. GeneralUtilities.h/.c
 
 **Purpose**:
@@ -927,7 +914,7 @@ integrate the extensive in-code comments to clarify each function’s role.
 - The memory-allocation wrappers show up throughout the code.
 
 ---
-
+<br /><br />
 ### 3. StringUtilities.h/.c
 
 **Purpose**:
@@ -985,7 +972,7 @@ integrate the extensive in-code comments to clarify each function’s role.
 - Many CSV “quirks” (like repeated commas) get fixed here.
 
 ---
-
+<br /><br />
 ### 4. FileUtilities.h/.c
 
 **Purpose**:
@@ -1044,7 +1031,7 @@ integrate the extensive in-code comments to clarify each function’s role.
 - Helps create specialized subdirectories where numeric columns are stored.
 
 ---
-
+<br /><br />
 ### 5. DataExtraction.h/.c
 
 **Purpose**:
@@ -1104,7 +1091,7 @@ integrate the extensive in-code comments to clarify each function’s role.
   other analysis modules that want an array of numeric columns.
 
 ---
-
+<br /><br />
 ### 6. StatisticalMethods.h/.c
 
 **Purpose**:
@@ -1152,7 +1139,7 @@ integrate the extensive in-code comments to clarify each function’s role.
   writes a small `_analysis.txt` or `_histogram.txt`.
 
 ---
-
+<br /><br />
 ### 7. DataAnalysis.h/c and DataSetModeling.h/c
 
 (this is effectively the orchestrator for analysis and modeling.)
@@ -1214,7 +1201,8 @@ integrate the extensive in-code comments to clarify each function’s role.
   “leg work.”
 
 ---
-
+<br /><br />
+<br /><br />
 ## 4. Conclusion & Key Takeaways
 
 ### Conclusion
@@ -1232,28 +1220,28 @@ scripts, is in well-documented `.c/h` files with specialized purposes:
 4. **DataAnalysis**: High-level “pipeline orchestration.”
 5. **StatisticalMethods**: Standard stats and histograms for numeric data.
 6. **DataSetModeling**: Analysis and script generation for modeling.
-
+<br /><br />
 From this uniform approach, it is straightforward to incorporate additional
 transformations or domain-specific modeling steps while maintaining a reliable,
 repeating pattern for all new CSV data sets.
-
+<br /><br />
 ### Key Takeaways
 
 1. **Modular Design**:  
    The program is deliberately separated into smaller files, each with a clear
    responsibility—string parsing vs. file I/O vs. statistical methods, etc. This
    separation fosters maintainability and clarity.
-
+<br /><br />
 2. **Uniform CSV Assumption**:  
    The code expects all rows in a CSV to have the same number of fields,
    matching that of the header. This underlies the entire pipeline’s reliability
    and the creation of consistent numeric arrays for analysis.
-
+<br /><br />
 3. **From Raw to Analyzable**:  
    The program carefully transforms raw CSV lines (often messy) into
    structured, pruned, and typed data. Numeric fields end up in separate `.txt`
    files, each suitable for direct numeric analysis or plotting.
-
+<br /><br />
 4. **Extensible**:  
    Because the pipeline is mostly “once interpreted, consistently used,” it is
    straightforward to drop in new analysis routines, new modeling scripts, or
@@ -1269,11 +1257,12 @@ repeating pattern for all new CSV data sets.
    - If you want advanced outlier detection, you can place that after the
      numeric columns are extracted, or incorporate it into
      `format_data_entry_for_plotting(...)`.
-
+<br /><br />
 5. **Power of Radix Sort**:  
    A highlight is the specialized `radix_sort_doubles`, which demonstrates
    bitwise manipulation to handle negative doubles. Though not always
    needed for typical CSV tasks, it shows advanced usage that can scale to
    large data sets.
+
 
 

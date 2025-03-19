@@ -147,6 +147,490 @@ delimited) files. The typical flow this pipeline is designed to handle:
 
 
 
+**Final Output in Terminal and Models Visualized in MATLAB**
+
+
+
+
+
+
+----------------------------------------------------------------
+ Blind extraction of File Contents    -->    Formatting:
+----------------------------------------------------------------
+	pdg_id,pdg_name,name,charge,rank,quarks,mass,mass_lower,mass_upper,width,width_lower,width_upper
+	-2212,p,anti_proton,-1.0,4,UUD,938.27208816,2.9e-07,2.9e-07,0.0,0.0,0.0
+	-2112,n,anti_neutron,0.0,4,UDD,939.5654205,5e-07,5e-07,7.493e-25,4e-28,4e-28
+	-321,K,kaon-,-1.0,0,Us,493.677,0.016,0.016,5.317e-14,9e-17,9e-17
+	-211,pi,pion,-1.0,0,Ud,139.57039,0.00018,0.00018,2.5284e-14,5e-18,5e-18
+	-24,W,W-,-1.0,0,-,80379.0,12.0,12.0,2080.0,40.0,40.0
+	-16,nu(tau),anti_tau_neutrino,0.0,0,-,-,-,-,0.0,0.0,0.0
+	-15,tau,anti_tau,1.0,0,-,1776.86,0.12,0.12,2.267e-09,4e-12,4e-12
+	-14,nu(mu),anti_muon_neutrino,0.0,0,-,-,-,-,0.0,0.0,0.0
+	-13,mu,anti_muon,1.0,0,-,105.6583755,2.3e-06,2.3e-06,2.9959836e-16,3e-22,3e-22
+	-12,nu(e),anti_electron_neutrino,0.0,0,-,-,-,-,0.0,0.0,0.0
+	-11,e,anti_electron (positron),1.0,0,-,0.51099895,1.5e-10,1.5e-10,0.0,0.0,0.0
+	-6,t,anti_top,-0.6666666666666666,0,T,172500.0,700.0,700.0,1420.0,150.0,190.0
+	-5,b,anti_bottom,0.3333333333333333,0,B,4180.0,20.0,30.0,-,-,-
+	-4,c,anti_charm,-0.6666666666666666,0,C,1270.0,20.0,20.0,-,-,-
+	-3,s,anti_strange,0.3333333333333333,0,S,93.4,3.4,8.6,-,-,-
+	-2,u,anti_up,-0.6666666666666666,0,U,2.16,0.3,0.5,-,-,-
+	-1,d,anti_down,0.3333333333333333,0,D,4.67,0.2,0.5,-,-,-
+	1,d,down,-0.3333333333333333,0,d,4.67,0.2,0.5,-,-,-
+	2,u,up,0.6666666666666666,0,u,2.16,0.3,0.5,-,-,-
+	3,s,strange,-0.3333333333333333,0,s,93.4,3.4,8.6,-,-,-
+	4,c,charm,0.6666666666666666,0,c,1270.0,20.0,20.0,-,-,-
+	5,b,bottom,-0.3333333333333333,0,b,4180.0,20.0,30.0,-,-,-
+	6,t,top,0.6666666666666666,0,t,172500.0,700.0,700.0,1420.0,150.0,190.0
+	11,e,electron,-1.0,0,-,0.51099895,1.5e-10,1.5e-10,0.0,0.0,0.0
+	12,nu(e),electron_neutrino,0.0,0,-,-,-,-,0.0,0.0,0.0
+	13,mu,muon,-1.0,0,-,105.6583755,2.3e-06,2.3e-06,2.9959836e-16,3e-22,3e-22
+	14,nu(mu),muon_neutrino,0.0,0,-,-,-,-,0.0,0.0,0.0
+	15,tau,tau,-1.0,0,-,1776.86,0.12,0.12,2.267e-09,4e-12,4e-12
+	16,nu(tau),tau_netrino,0.0,0,-,-,-,-,0.0,0.0,0.0
+	21,g,gluon,0.0,0,-,0.0,0.0,0.0,0.0,0.0,0.0
+	22,gamma,photon,0.0,0,-,0.0,0.0,0.0,0.0,0.0,0.0
+	23,Z,Z0,0.0,0,-,91187.6,2.1,2.1,2495.2,2.3,2.3
+	24,W,W+,1.0,0,-,80379.0,12.0,12.0,2080.0,40.0,40.0
+	25,H,higgs,0.0,0,-,125250.0,170.0,170.0,3.2,2.2,2.8
+	111,pi,pion-,0.0,0,(uU-dD)/sqrt(2),134.9768,0.0005,0.0005,7.81e-06,1.2e-07,1.2e-07
+	211,pi,pion+,1.0,0,uD,139.57039,0.00018,0.00018,2.5284e-14,5e-18,5e-18
+	321,K,kaon+,1.0,0,uS,493.677,0.016,0.016,5.317e-14,9e-17,9e-17
+	2112,n,neutron,0.0,4,udd,939.5654205,5e-07,5e-07,7.493e-25,4e-28,4e-28
+	2212,p,proton,1.0,4,uud,938.27208816,2.9e-07,2.9e-07,0.0,0.0,0.0
+	3112,Sigma,sigma-,-1.0,4,dds,1197.449,0.03,0.03,4.45e-12,3.2e-14,3.2e-14
+	3122,Lambda,lambda0,0.0,4,uds,1115.683,0.006,0.006,2.501e-12,1.9e-14,1.9e-14
+	3212,Sigma,sigma0,0.0,4,uds,1192.642,0.024,0.024,0.0089,0.0008,0.0009
+	3222,Sigma,sigma+,1.0,4,uus,1189.37,0.07,0.07,8.209e-12,2.7e-14,2.7e-14
+	3312,Xi,xi-,-1.0,4,dss,1321.71,0.07,0.07,4.02e-12,4e-14,4e-14
+	3322,Xi,xi0,0.0,4,uss,1314.86,0.2,0.2,2.27e-12,7e-14,7e-14
+	3334,Omega,omega-,-1.0,4,sss,1672.45,0.29,0.29,8.02e-12,1.1e-13,1.1e-13
+
+
+
+
+
+----------------------------------------------------------------
+ Formatted Extraction of File Contents    -->    Preprocessing:
+----------------------------------------------------------------
+	pdg_id,pdg_name,name,charge,rank,quarks,mass,mass_lower,mass_upper,width,width_lower,width_upper
+	-2212,p,anti_proton,-1.0,4,UUD,938.27208816,2.9e-07,2.9e-07,0.0,0.0,0.0
+	-2112,n,anti_neutron,0.0,4,UDD,939.5654205,5e-07,5e-07,7.493e-25,4e-28,4e-28
+	-321,K,kaon-,-1.0,0,Us,493.677,0.016,0.016,5.317e-14,9e-17,9e-17
+	-211,pi,pion,-1.0,0,Ud,139.57039,0.00018,0.00018,2.5284e-14,5e-18,5e-18
+	-24,W,W-,-1.0,0,0.0,80379.0,12.0,12.0,2080.0,40.0,40.0
+	-16,nu(tau),anti_tau_neutrino,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+	-15,tau,anti_tau,1.0,0,0.0,1776.86,0.12,0.12,2.267e-09,4e-12,4e-12
+	-14,nu(mu),anti_muon_neutrino,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+	-13,mu,anti_muon,1.0,0,0.0,105.6583755,2.3e-06,2.3e-06,2.9959836e-16,3e-22,3e-22
+	-12,nu(e),anti_electron_neutrino,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+	-11,e,anti_electron(positron),1.0,0,0.0,0.51099895,1.5e-10,1.5e-10,0.0,0.0,0.0
+	-6,t,anti_top,-0.6666666666666666,0,T,172500.0,700.0,700.0,1420.0,150.0,190.0
+	-5,b,anti_bottom,0.3333333333333333,0,B,4180.0,20.0,30.0,0.0,0.0,0.0
+	-4,c,anti_charm,-0.6666666666666666,0,C,1270.0,20.0,20.0,0.0,0.0,0.0
+	-3,s,anti_strange,0.3333333333333333,0,S,93.4,3.4,8.6,0.0,0.0,0.0
+	-2,u,anti_up,-0.6666666666666666,0,U,2.16,0.3,0.5,0.0,0.0,0.0
+	-1,d,anti_down,0.3333333333333333,0,D,4.67,0.2,0.5,0.0,0.0,0.0
+	1,d,down,-0.3333333333333333,0,d,4.67,0.2,0.5,0.0,0.0,0.0
+	2,u,up,0.6666666666666666,0,u,2.16,0.3,0.5,0.0,0.0,0.0
+	3,s,strange,-0.3333333333333333,0,s,93.4,3.4,8.6,0.0,0.0,0.0
+	4,c,charm,0.6666666666666666,0,c,1270.0,20.0,20.0,0.0,0.0,0.0
+	5,b,bottom,-0.3333333333333333,0,b,4180.0,20.0,30.0,0.0,0.0,0.0
+	6,t,top,0.6666666666666666,0,t,172500.0,700.0,700.0,1420.0,150.0,190.0
+	11,e,electron,-1.0,0,0.0,0.51099895,1.5e-10,1.5e-10,0.0,0.0,0.0
+	12,nu(e),electron_neutrino,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+	13,mu,muon,-1.0,0,0.0,105.6583755,2.3e-06,2.3e-06,2.9959836e-16,3e-22,3e-22
+	14,nu(mu),muon_neutrino,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+	15,tau,tau,-1.0,0,0.0,1776.86,0.12,0.12,2.267e-09,4e-12,4e-12
+	16,nu(tau),tau_netrino,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+	21,g,gluon,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+	22,gamma,photon,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+	23,Z,Z0,0.0,0,0.0,91187.6,2.1,2.1,2495.2,2.3,2.3
+	24,W,W+,1.0,0,0.0,80379.0,12.0,12.0,2080.0,40.0,40.0
+	25,H,higgs,0.0,0,0.0,125250.0,170.0,170.0,3.2,2.2,2.8
+	111,pi,pion-,0.0,0,(uU-dD)/sqrt(2),134.9768,0.0005,0.0005,7.81e-06,1.2e-07,1.2e-07
+	211,pi,pion+,1.0,0,uD,139.57039,0.00018,0.00018,2.5284e-14,5e-18,5e-18
+	321,K,kaon+,1.0,0,uS,493.677,0.016,0.016,5.317e-14,9e-17,9e-17
+	2112,n,neutron,0.0,4,udd,939.5654205,5e-07,5e-07,7.493e-25,4e-28,4e-28
+	2212,p,proton,1.0,4,uud,938.27208816,2.9e-07,2.9e-07,0.0,0.0,0.0
+	3112,Sigma,sigma-,-1.0,4,dds,1197.449,0.03,0.03,4.45e-12,3.2e-14,3.2e-14
+	3122,Lambda,lambda0,0.0,4,uds,1115.683,0.006,0.006,2.501e-12,1.9e-14,1.9e-14
+	3212,Sigma,sigma0,0.0,4,uds,1192.642,0.024,0.024,0.0089,0.0008,0.0009
+	3222,Sigma,sigma+,1.0,4,uus,1189.37,0.07,0.07,8.209e-12,2.7e-14,2.7e-14
+	3312,Xi,xi-,-1.0,4,dss,1321.71,0.07,0.07,4.02e-12,4e-14,4e-14
+	3322,Xi,xi0,0.0,4,uss,1314.86,0.2,0.2,2.27e-12,7e-14,7e-14
+	3334,Omega,omega-,-1.0,4,sss,1672.45,0.29,0.29,8.02e-12,1.1e-13,1.1e-13
+
+
+
+
+
+----------------------------------------------------------------
+ Preprocessed Extraction of File Contents    -->    Plottability:
+----------------------------------------------------------------
+	pdg_id,charge,rank,mass,mass_lower,mass_upper,width,width_lower,width_upper
+	-2212,-1.0,4,938.27208816,2.9e-07,2.9e-07,0.0,0.0,0.0,
+	-2112,0.0,4,939.5654205,5e-07,5e-07,7.493e-25,4e-28,4e-28,
+	-321,-1.0,0,493.677,0.016,0.016,5.317e-14,9e-17,9e-17,
+	-211,-1.0,0,139.57039,0.00018,0.00018,2.5284e-14,5e-18,5e-18,
+	-24,-1.0,0,80379.0,12.0,12.0,2080.0,40.0,40.0,
+	-16,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,
+	-15,1.0,0,1776.86,0.12,0.12,2.267e-09,4e-12,4e-12,
+	-14,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,
+	-13,1.0,0,105.6583755,2.3e-06,2.3e-06,2.9959836e-16,3e-22,3e-22,
+	-12,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,
+	-11,1.0,0,0.51099895,1.5e-10,1.5e-10,0.0,0.0,0.0,
+	-6,-0.6666666666666666,0,172500.0,700.0,700.0,1420.0,150.0,190.0,
+	-5,0.3333333333333333,0,4180.0,20.0,30.0,0.0,0.0,0.0,
+	-4,-0.6666666666666666,0,1270.0,20.0,20.0,0.0,0.0,0.0,
+	-3,0.3333333333333333,0,93.4,3.4,8.6,0.0,0.0,0.0,
+	-2,-0.6666666666666666,0,2.16,0.3,0.5,0.0,0.0,0.0,
+	-1,0.3333333333333333,0,4.67,0.2,0.5,0.0,0.0,0.0,
+	1,-0.3333333333333333,0,4.67,0.2,0.5,0.0,0.0,0.0,
+	2,0.6666666666666666,0,2.16,0.3,0.5,0.0,0.0,0.0,
+	3,-0.3333333333333333,0,93.4,3.4,8.6,0.0,0.0,0.0,
+	4,0.6666666666666666,0,1270.0,20.0,20.0,0.0,0.0,0.0,
+	5,-0.3333333333333333,0,4180.0,20.0,30.0,0.0,0.0,0.0,
+	6,0.6666666666666666,0,172500.0,700.0,700.0,1420.0,150.0,190.0,
+	11,-1.0,0,0.51099895,1.5e-10,1.5e-10,0.0,0.0,0.0,
+	12,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,
+	13,-1.0,0,105.6583755,2.3e-06,2.3e-06,2.9959836e-16,3e-22,3e-22,
+	14,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,
+	15,-1.0,0,1776.86,0.12,0.12,2.267e-09,4e-12,4e-12,
+	16,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,
+	21,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,
+	22,0.0,0,0.0,0.0,0.0,0.0,0.0,0.0,
+	23,0.0,0,91187.6,2.1,2.1,2495.2,2.3,2.3,
+	24,1.0,0,80379.0,12.0,12.0,2080.0,40.0,40.0,
+	25,0.0,0,125250.0,170.0,170.0,3.2,2.2,2.8,
+	111,0.0,0,134.9768,0.0005,0.0005,7.81e-06,1.2e-07,1.2e-07,
+	211,1.0,0,139.57039,0.00018,0.00018,2.5284e-14,5e-18,5e-18,
+	321,1.0,0,493.677,0.016,0.016,5.317e-14,9e-17,9e-17,
+	2112,0.0,4,939.5654205,5e-07,5e-07,7.493e-25,4e-28,4e-28,
+	2212,1.0,4,938.27208816,2.9e-07,2.9e-07,0.0,0.0,0.0,
+	3112,-1.0,4,1197.449,0.03,0.03,4.45e-12,3.2e-14,3.2e-14,
+	3122,0.0,4,1115.683,0.006,0.006,2.501e-12,1.9e-14,1.9e-14,
+	3212,0.0,4,1192.642,0.024,0.024,0.0089,0.0008,0.0009,
+	3222,1.0,4,1189.37,0.07,0.07,8.209e-12,2.7e-14,2.7e-14,
+	3312,-1.0,4,1321.71,0.07,0.07,4.02e-12,4e-14,4e-14,
+	3322,0.0,4,1314.86,0.2,0.2,2.27e-12,7e-14,7e-14,
+	3334,-1.0,4,1672.45,0.29,0.29,8.02e-12,1.1e-13,1.1e-13,
+
+
+
+
+
+----------------------------------------------------------------
+ Pairs of field names and their corresponding types in 'process_data_set_for_analysis':
+----------------------------------------------------------------
+	pdg_id;numeric
+	pdg_name;nonnumeric
+	name;nonnumeric
+	charge;numeric
+	rank;numeric
+	quarks;nonnumeric
+	mass;numeric
+	mass_lower;numeric
+	mass_upper;numeric
+	width;numeric
+	width_lower;numeric
+	width_upper;numeric
+
+
+
+
+
+
+
+***********************************************************************
+ Preliminary extraction and preprocessing of data set complete.
+		Summary: Preprocessed the data set to ensure operational compatibility throughout the program. 
+Extracting and formatting the contents of the data set achieved by having: 
+		1. Extracted the data set contents into an array of strings.
+		2. Pruned and trimmed the data set contents to remove problematic characters.
+		3. Organized entries of the file corresponding to the expected line order of header and data entries.
+		4. Parsed the file contents to independently capture all entries for each of the data set's fields.
+		5. Categorized the data parameters into plottable and unplottable values.
+		6. Created directories for plottable fields of data entries, named & located with respect to the original file.
+		7. Data conditionally written into files for each field, named & placed in accordance with the aforementioned directory and nomenclature.
+
+***********************************************************************
+
+
+
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+ Dataset Directory physics_particles_Plottable_Fields
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+|
+| Directory Pathname: /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields
+| Count of Files: 9    
+| Files in Directory: 
+| 	      physics_particles_Plottable_Field_5-mass_upper
+| 	      physics_particles_Plottable_Field_7-width_lower
+| 	      physics_particles_Plottable_Field_3-mass
+| 	      physics_particles_Plottable_Field_8-width_upper
+| 	      physics_particles_Plottable_Field_4-mass_lower
+| 	      physics_particles_Plottable_Field_6-width
+| 	      physics_particles_Plottable_Field_0-pdg_id
+| 	      physics_particles_Plottable_Field_2-rank
+| 	      physics_particles_Plottable_Field_1-charge
+|
+|
+| Properties: 
+|
+| 	0:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_5-mass_upper.txt
+|        		429  
+|
+| 	1:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_7-width_lower.txt
+|        		443  
+|
+| 	2:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_3-mass.txt
+|        		520  
+|
+| 	3:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_8-width_upper.txt
+|        		443  
+|
+| 	4:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_4-mass_lower.txt
+|        		493  
+|
+| 	5:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_6-width.txt
+|        		450  
+|
+| 	6:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_0-pdg_id.txt
+|        		126  
+|
+| 	7:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_2-rank.txt
+|        		50   
+|
+| 	8:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_1-charge.txt
+|        		283  
+|
+
+Error: Interquartile range is zero. Choose a different binning method, in 'compute_IQR'.
+
+
+
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+ Dataset Directory physics_particles_Plottable_Fields_Full_Analysis_Results
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+|
+| Directory Pathname: /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results
+| Count of Files: 49   
+| Files in Directory: 
+| 	      width_upper_normality
+| 	      mass_lower_full_analysis
+| 	      mass_upper_plot
+| 	      charge_full_analysis
+| 	      width_upper_full_analysis
+| 	      mass_upper_normality
+| 	      width_lower_stats
+| 	      charge_histogram
+| 	      mass_normality
+| 	      width_upper_plot
+| 	      width_full_analysis
+| 	      (null)_plot
+| 	      pdg_id_normalitywidth_lower_plotnonnumeric_plot
+| 	      mass_upper_full_analysis
+| 	      mass_lower_normality
+| 	      width_lower_plotnonnumeric_plot
+| 	      width_lower_full_analysis
+| 	      nonnumeric_plot
+| 	      rank_full_analysis
+| 	      pdg_id_plot
+| 	      width_upper_stats
+| 	      rank_stats
+| 	      width_histogram
+| 	      width_lower_normality
+| 	      charge_stats
+| 	      rank_histogram
+| 	      mass_lower_plot
+| 	      width_stats
+| 	      width_plot
+| 	      mass_plot
+| 	      mass_lower_histogram
+| 	      mass_upper_statspdg_id_histogrammass_stats
+| 	      pdg_id_histogrammass_stats
+| 	      mass_stats
+| 	      pdg_id_stats
+| 	      rank_normality
+| 	      width_lower_histogram
+| 	      width_normality
+| 	      mass_lower_statsnumeric_plot
+| 	      numeric_plot
+| 	      rank_plot
+| 	      width_upper_histogram
+| 	      pdg_id_full_analysis
+| 	      mass_full_analysis
+| 	      charge_plot
+| 	      mass_histogram
+| 	      comprehensive_plots
+| 	      charge_normality
+| 	      mass_upper_histogram
+|
+|
+| Properties: 
+|
+| 	0:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_upper_normality.txt
+|        		87   
+|
+| 	1:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_lower_full_analysis.txt
+|        		278  
+|
+| 	2:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_upper_plot.m
+|        		977  
+|
+| 	3:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/charge_full_analysis.txt
+|        		280  
+|
+| 	4:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_upper_full_analysis.txt
+|        		279  
+|
+| 	5:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_upper_normality.txt
+|        		87   
+|
+| 	6:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_lower_stats.txt
+|        		90   
+|
+| 	7:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/charge_histogram.txt
+|        		7    
+|
+| 	8:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_normality.txt
+|        		87   
+|
+| 	9:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_upper_plot.m
+|        		983  
+|
+| 	10:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_full_analysis.txt
+|        		272  
+|
+| 	11:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/(null)_plot.m
+|        		17171
+|
+| 	12:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/pdg_id_normality.txt
+|        		86   
+|
+| 	13:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_upper_full_analysis.txt
+|        		278  
+|
+| 	14:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_lower_normality.txt
+|        		87   
+|
+| 	15:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_lower_plot.m
+|        		983  
+|
+| 	16:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_lower_full_analysis.txt
+|        		279  
+|
+| 	17:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/nonnumeric_plot.m
+|        		2934 
+|
+| 	18:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/rank_full_analysis.txt
+|        		273  
+|
+| 	19:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/pdg_id_plot.m
+|        		953  
+|
+| 	20:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_upper_stats.txt
+|        		90   
+|
+| 	21:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/rank_stats.txt
+|        		91   
+|
+| 	22:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_histogram.txt
+|        		2084 
+|
+| 	23:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_lower_normality.txt
+|        		87   
+|
+| 	24:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/charge_stats.txt
+|        		96   
+|
+| 	25:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/rank_histogram.txt
+|        		6    
+|
+| 	26:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_lower_plot.m
+|        		977  
+|
+| 	27:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_stats.txt
+|        		89   
+|
+| 	28:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_plot.m
+|        		947  
+|
+| 	29:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_plot.m
+|        		941  
+|
+| 	30:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_lower_histogram.txt
+|        		464  
+|
+| 	31:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_upper_stats.txt
+|        		90   
+|
+| 	32:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/pdg_id_histogram.txt
+|        		12752
+|
+| 	33:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_stats.txt
+|        		90   
+|
+| 	34:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/pdg_id_stats.txt
+|        		89   
+|
+| 	35:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/rank_normality.txt
+|        		87   
+|
+| 	36:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_lower_histogram.txt
+|        		24   
+|
+| 	37:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_normality.txt
+|        		86   
+|
+| 	38:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_lower_stats.txt
+|        		90   
+|
+| 	39:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/numeric_plot.m
+|        		5760 
+|
+| 	40:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/rank_plot.m
+|        		941  
+|
+| 	41:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_upper_histogram.txt
+|        		39   
+|
+| 	42:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/pdg_id_full_analysis.txt
+|        		273  
+|
+| 	43:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_full_analysis.txt
+|        		272  
+|
+| 	44:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/charge_plot.m
+|        		953  
+|
+| 	45:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_histogram.txt
+|        		9188 
+|
+| 	46:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/comprehensive_plots.m
+|        		1739 
+|
+| 	47:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/charge_normality.txt
+|        		87   
+|
+| 	48:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_upper_histogram.txt
+|        		464  
 
 
 <img width="2056" alt="physics_particles_model" src="https://github.com/user-attachments/assets/a681d1cb-5709-4c01-8cb5-4d099206bc50" />

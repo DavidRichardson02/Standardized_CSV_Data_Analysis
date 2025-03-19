@@ -1,0 +1,51 @@
+cmake_minimum_required(VERSION 3.10)
+project(ECE-370_Standardized_CSV_Data_Analysis VERSION 1.0 LANGUAGES C)
+
+
+
+
+
+# Include directories
+# Adds the include/ directory to the search path for headers.
+include_directories(include/ECE-370_Standardized_CSV_Data_Analysis/ECE-370_Standardized_CSV_Data_Analysis)
+
+
+
+# Source files
+# Defines a variable SOURCES containing all source files.
+set(SOURCES
+  ECE-370_Standardized_CSV_Data_Analysis/CommonDefinitions.c
+  ECE-370_Standardized_CSV_Data_Analysis/GeneralUtilities.c
+  ECE-370_Standardized_CSV_Data_Analysis/StringUtilities.c
+  ECE-370_Standardized_CSV_Data_Analysis/FileUtilities.c
+  ECE-370_Standardized_CSV_Data_Analysis/DataExtraction.c
+  ECE-370_Standardized_CSV_Data_Analysis/Integrators.c
+  ECE-370_Standardized_CSV_Data_Analysis/StatisticalMethods.c
+  ECE-370_Standardized_CSV_Data_Analysis/DataSetModeling.c
+  ECE-370_Standardized_CSV_Data_Analysis/DataAnalysis.c
+  ECE-370_Standardized_CSV_Data_Analysis/DebuggingUtilities.c
+  ECE-370_Standardized_CSV_Data_Analysis/main.c
+)
+
+
+
+
+
+# Add executable
+# Creates the executable from the specified sources.
+add_executable(ECE-370_Standardized_CSV_Data_Analysis ${SOURCES})
+
+
+
+
+
+# Compiler flags for this target
+target_compile_options(ECE-370_Standardized_CSV_Data_Analysis PRIVATE -Wall -Wextra -O2)
+
+
+
+
+
+# Set C standard
+set_property(TARGET ECE-370_Standardized_CSV_Data_Analysis PROPERTY C_STANDARD 11)
+

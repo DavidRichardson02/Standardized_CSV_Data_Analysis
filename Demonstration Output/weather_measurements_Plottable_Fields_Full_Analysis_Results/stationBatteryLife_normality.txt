@@ -1,0 +1,2 @@
+Anderson-Darling A^2: 147.54849229283025
+Interpretation: Smaller A^2 = closer to normal.

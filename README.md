@@ -43,6 +43,12 @@ delimited) files. The typical flow this pipeline is designed to handle:
      instance, very complex or high-dimensional data may require advanced
      techniques or dimensionality reduction methods to be effectively
      visualized which is largely not within the scope or purpose of this project.
+<img width="944" alt="Screenshot 2025-03-19 at 11 16 34 AM" src="https://github.com/user-attachments/assets/abb129d0-67fb-455a-9b96-da0b38d4b331" />
+
+
+<img width="936" alt="Screenshot 2025-03-19 at 11 11 49 AM" src="https://github.com/user-attachments/assets/8af51494-67ce-4fa1-a45c-50d299f61e7b" />
+
+
 
 4. **Organize Data into Structured Directories**
    - Once field types are identified, each field’s data is split out and
@@ -80,6 +86,15 @@ delimited) files. The typical flow this pipeline is designed to handle:
      computations, and enable a modular approach that readily extends to
      future transformations or data processing features.
 
+
+
+<img width="442" alt="Screenshot 2025-03-15 at 9 29 39 PM" src="https://github.com/user-attachments/assets/fab982e4-33b1-4708-8bed-da884888b411" />
+
+
+<img width="602" alt="Screenshot 2025-03-19 at 10 56 04 AM" src="https://github.com/user-attachments/assets/9cf40b34-a260-4fcb-ba17-0061f355fe3d" />
+
+
+
 5. **Analyze:**
    - Once the numeric columns have been isolated in separate files, the
      program computes a variety of standard statistics and descriptive
@@ -100,6 +115,14 @@ delimited) files. The typical flow this pipeline is designed to handle:
    - Through these steps, each numeric field ends with both raw numeric data
      (in its own file) and a companion analysis file detailing its statistical
      properties.
+
+
+
+
+
+
+<img width="437" alt="Screenshot 2025-03-15 at 9 59 53 PM" src="https://github.com/user-attachments/assets/b5b8020d-ffd9-448b-ad6e-78545030c904" />
+
 
 6. **Model (NOT COMPLETE IN PROGRAM, WIP):**
    - The program’s modeling phase builds upon these clean numeric columns
@@ -122,6 +145,20 @@ delimited) files. The typical flow this pipeline is designed to handle:
      by ensuring that the data’s shape and types remain coherent from initial
      ingestion through final curve-fitting routines.
 
+
+
+
+
+<img width="2056" alt="physics_particles_model" src="https://github.com/user-attachments/assets/a681d1cb-5709-4c01-8cb5-4d099206bc50" />
+
+
+<img width="2055" alt="weather_measurements_model" src="https://github.com/user-attachments/assets/58ad0442-5667-48c4-8163-adcd23014464" />
+
+
+
+
+
+
 **Summary**:  
 By successively reading, preprocessing, extracting numeric fields into
 directories, then systematically analyzing and modeling those fields, these stages
@@ -130,20 +167,6 @@ of many forms. Users can conveniently plug in new analysis scripts, numeric
 transformations, or domain-focused modeling routines, with confidence that the data
 have been cleaned and structured according to well-defined protocols.
 
-
-
-
-<img width="2056" alt="physics_particles_model" src="https://github.com/user-attachments/assets/a681d1cb-5709-4c01-8cb5-4d099206bc50" />
-
-
-
-
-
-
-
-
-
-<img width="2055" alt="weather_measurements_model" src="https://github.com/user-attachments/assets/58ad0442-5667-48c4-8163-adcd23014464" />
 
 
 

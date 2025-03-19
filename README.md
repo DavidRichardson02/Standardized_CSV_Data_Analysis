@@ -24,6 +24,9 @@ delimited) files. The typical flow this pipeline is designed to handle:
    - Extracting and/or standardizing units attached to numeric fields (link to
      documentation in `StringUtilities.h/c`).
 
+<br />
+<br />
+
 3. **Evaluate and Extract:**
    - The parameters of each field and identify which fields are plottable and
      which might need special handling using type inference.
@@ -43,13 +46,15 @@ delimited) files. The typical flow this pipeline is designed to handle:
      instance, very complex or high-dimensional data may require advanced
      techniques or dimensionality reduction methods to be effectively
      visualized which is largely not within the scope or purpose of this project.
+<br />
+     
 <img width="944" alt="Screenshot 2025-03-19 at 11 16 34 AM" src="https://github.com/user-attachments/assets/abb129d0-67fb-455a-9b96-da0b38d4b331" />
 
-
+<br />
 <img width="936" alt="Screenshot 2025-03-19 at 11 11 49 AM" src="https://github.com/user-attachments/assets/8af51494-67ce-4fa1-a45c-50d299f61e7b" />
 
-
-
+<br />
+<br />
 4. **Organize Data into Structured Directories**
    - Once field types are identified, each field’s data is split out and
      systematically written to a dedicated file within a custom generated
@@ -86,15 +91,16 @@ delimited) files. The typical flow this pipeline is designed to handle:
      computations, and enable a modular approach that readily extends to
      future transformations or data processing features.
 
-
+<br />
 
 <img width="442" alt="Screenshot 2025-03-15 at 9 29 39 PM" src="https://github.com/user-attachments/assets/fab982e4-33b1-4708-8bed-da884888b411" />
-
+<br />
 
 <img width="602" alt="Screenshot 2025-03-19 at 10 56 04 AM" src="https://github.com/user-attachments/assets/9cf40b34-a260-4fcb-ba17-0061f355fe3d" />
 
 
-
+<br />
+<br />
 5. **Analyze:**
    - Once the numeric columns have been isolated in separate files, the
      program computes a variety of standard statistics and descriptive
@@ -119,10 +125,12 @@ delimited) files. The typical flow this pipeline is designed to handle:
 
 
 
-
+<br />
 
 <img width="437" alt="Screenshot 2025-03-15 at 9 59 53 PM" src="https://github.com/user-attachments/assets/b5b8020d-ffd9-448b-ad6e-78545030c904" />
 
+<br />
+<br />
 
 6. **Model (NOT COMPLETE IN PROGRAM, WIP):**
    - The program’s modeling phase builds upon these clean numeric columns
@@ -147,7 +155,15 @@ delimited) files. The typical flow this pipeline is designed to handle:
 
 
 
+<br />
+<br />
 **Final Output in Terminal and Models Visualized in MATLAB**
+
+
+
+
+
+```
 
 
 
@@ -368,52 +384,55 @@ Extracting and formatting the contents of the data set achieved by having:
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-|
-| Directory Pathname: /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields
-| Count of Files: 9    
-| Files in Directory: 
-| 	      physics_particles_Plottable_Field_5-mass_upper
-| 	      physics_particles_Plottable_Field_7-width_lower
-| 	      physics_particles_Plottable_Field_3-mass
-| 	      physics_particles_Plottable_Field_8-width_upper
-| 	      physics_particles_Plottable_Field_4-mass_lower
-| 	      physics_particles_Plottable_Field_6-width
-| 	      physics_particles_Plottable_Field_0-pdg_id
-| 	      physics_particles_Plottable_Field_2-rank
-| 	      physics_particles_Plottable_Field_1-charge
-|
-|
-| Properties: 
-|
-| 	0:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_5-mass_upper.txt
-|        		429  
-|
-| 	1:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_7-width_lower.txt
-|        		443  
-|
-| 	2:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_3-mass.txt
-|        		520  
-|
-| 	3:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_8-width_upper.txt
-|        		443  
-|
-| 	4:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_4-mass_lower.txt
-|        		493  
-|
-| 	5:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_6-width.txt
-|        		450  
-|
-| 	6:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_0-pdg_id.txt
-|        		126  
-|
-| 	7:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_2-rank.txt
-|        		50   
-|
-| 	8:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_1-charge.txt
-|        		283  
-|
 
-Error: Interquartile range is zero. Choose a different binning method, in 'compute_IQR'.
+ Directory Pathname: /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields
+ Count of Files: 9    
+ Files in Directory: 
+ 	      physics_particles_Plottable_Field_5-mass_upper
+ 	      physics_particles_Plottable_Field_7-width_lower
+ 	      physics_particles_Plottable_Field_3-mass
+ 	      physics_particles_Plottable_Field_8-width_upper
+ 	      physics_particles_Plottable_Field_4-mass_lower
+ 	      physics_particles_Plottable_Field_6-width
+ 	      physics_particles_Plottable_Field_0-pdg_id
+ 	      physics_particles_Plottable_Field_2-rank
+ 	      physics_particles_Plottable_Field_1-charge
+
+
+ Properties: 
+
+ 	0:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_5-mass_upper.txt
+        		429  
+
+ 	1:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_7-width_lower.txt
+        		443  
+
+ 	2:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_3-mass.txt
+        		520  
+
+ 	3:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_8-width_upper.txt
+        		443  
+
+ 	4:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_4-mass_lower.txt
+        		493  
+
+ 	5:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_6-width.txt
+        		450  
+
+ 	6:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_0-pdg_id.txt
+        		126  
+
+ 	7:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_2-rank.txt
+        		50   
+
+ 	8:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields/physics_particles_Plottable_Field_1-charge.txt
+        		283  
+
+
+Error: Interquartile range is zero. Choose a different binning method, in 'compute_IQR'.Error creating MATLAB plot script: /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/\320\224_plot.m
+Error creating MATLAB plot script: /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/\360\200\224_plot.m
+Error creating MATLAB plot script: /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/\200\202d_plot.m
+
 
 
 
@@ -428,219 +447,223 @@ Error: Interquartile range is zero. Choose a different binning method, in 'compu
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-|
-| Directory Pathname: /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results
-| Count of Files: 49   
-| Files in Directory: 
-| 	      width_upper_normality
-| 	      mass_lower_full_analysis
-| 	      mass_upper_plot
-| 	      charge_full_analysis
-| 	      width_upper_full_analysis
-| 	      mass_upper_normality
-| 	      width_lower_stats
-| 	      charge_histogram
-| 	      mass_normality
-| 	      width_upper_plot
-| 	      width_full_analysis
-| 	      (null)_plot
-| 	      pdg_id_normalitywidth_lower_plotnonnumeric_plot
-| 	      mass_upper_full_analysis
-| 	      mass_lower_normality
-| 	      width_lower_plotnonnumeric_plot
-| 	      width_lower_full_analysis
-| 	      nonnumeric_plot
-| 	      rank_full_analysis
-| 	      pdg_id_plot
-| 	      width_upper_stats
-| 	      rank_stats
-| 	      width_histogram
-| 	      width_lower_normality
-| 	      charge_stats
-| 	      rank_histogram
-| 	      mass_lower_plot
-| 	      width_stats
-| 	      width_plot
-| 	      mass_plot
-| 	      mass_lower_histogram
-| 	      mass_upper_statspdg_id_histogrammass_stats
-| 	      pdg_id_histogrammass_stats
-| 	      mass_stats
-| 	      pdg_id_stats
-| 	      rank_normality
-| 	      width_lower_histogram
-| 	      width_normality
-| 	      mass_lower_statsnumeric_plot
-| 	      numeric_plot
-| 	      rank_plot
-| 	      width_upper_histogram
-| 	      pdg_id_full_analysis
-| 	      mass_full_analysis
-| 	      charge_plot
-| 	      mass_histogram
-| 	      comprehensive_plots
-| 	      charge_normality
-| 	      mass_upper_histogram
-|
-|
-| Properties: 
-|
-| 	0:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_upper_normality.txt
-|        		87   
-|
-| 	1:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_lower_full_analysis.txt
-|        		278  
-|
-| 	2:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_upper_plot.m
-|        		977  
-|
-| 	3:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/charge_full_analysis.txt
-|        		280  
-|
-| 	4:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_upper_full_analysis.txt
-|        		279  
-|
-| 	5:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_upper_normality.txt
-|        		87   
-|
-| 	6:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_lower_stats.txt
-|        		90   
-|
-| 	7:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/charge_histogram.txt
-|        		7    
-|
-| 	8:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_normality.txt
-|        		87   
-|
-| 	9:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_upper_plot.m
-|        		983  
-|
-| 	10:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_full_analysis.txt
-|        		272  
-|
-| 	11:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/(null)_plot.m
-|        		17171
-|
-| 	12:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/pdg_id_normality.txt
-|        		86   
-|
-| 	13:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_upper_full_analysis.txt
-|        		278  
-|
-| 	14:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_lower_normality.txt
-|        		87   
-|
-| 	15:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_lower_plot.m
-|        		983  
-|
-| 	16:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_lower_full_analysis.txt
-|        		279  
-|
-| 	17:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/nonnumeric_plot.m
-|        		2934 
-|
-| 	18:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/rank_full_analysis.txt
-|        		273  
-|
-| 	19:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/pdg_id_plot.m
-|        		953  
-|
-| 	20:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_upper_stats.txt
-|        		90   
-|
-| 	21:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/rank_stats.txt
-|        		91   
-|
-| 	22:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_histogram.txt
-|        		2084 
-|
-| 	23:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_lower_normality.txt
-|        		87   
-|
-| 	24:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/charge_stats.txt
-|        		96   
-|
-| 	25:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/rank_histogram.txt
-|        		6    
-|
-| 	26:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_lower_plot.m
-|        		977  
-|
-| 	27:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_stats.txt
-|        		89   
-|
-| 	28:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_plot.m
-|        		947  
-|
-| 	29:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_plot.m
-|        		941  
-|
-| 	30:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_lower_histogram.txt
-|        		464  
-|
-| 	31:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_upper_stats.txt
-|        		90   
-|
-| 	32:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/pdg_id_histogram.txt
-|        		12752
-|
-| 	33:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_stats.txt
-|        		90   
-|
-| 	34:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/pdg_id_stats.txt
-|        		89   
-|
-| 	35:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/rank_normality.txt
-|        		87   
-|
-| 	36:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_lower_histogram.txt
-|        		24   
-|
-| 	37:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_normality.txt
-|        		86   
-|
-| 	38:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_lower_stats.txt
-|        		90   
-|
-| 	39:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/numeric_plot.m
-|        		5760 
-|
-| 	40:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/rank_plot.m
-|        		941  
-|
-| 	41:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_upper_histogram.txt
-|        		39   
-|
-| 	42:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/pdg_id_full_analysis.txt
-|        		273  
-|
-| 	43:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_full_analysis.txt
-|        		272  
-|
-| 	44:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/charge_plot.m
-|        		953  
-|
-| 	45:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_histogram.txt
-|        		9188 
-|
-| 	46:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/comprehensive_plots.m
-|        		1739 
-|
-| 	47:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/charge_normality.txt
-|        		87   
-|
-| 	48:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_upper_histogram.txt
-|        		464  
+
+ Directory Pathname: /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results
+ Count of Files: 49   
+ Files in Directory: 
+ 	      width_upper_normality
+ 	      mass_lower_full_analysis
+ 	      mass_upper_plot
+ 	      charge_full_analysis
+ 	      width_upper_full_analysis
+ 	      mass_upper_normality
+ 	      width_lower_stats
+ 	      charge_histogramcharge_stats
+ 	      mass_normality
+ 	      width_upper_plot
+ 	      width_full_analysis
+ 	      (null)_plot
+ 	      pdg_id_normality
+ 	      mass_upper_full_analysis
+ 	      _plot
+ 	      mass_lower_normality
+ 	      width_lower_plot
+ 	      width_lower_full_analysis
+ 	      rank_full_analysis
+ 	      pdg_id_plot
+ 	      width_upper_stats
+ 	      rank_stats
+ 	      width_histogram
+ 	      width_lower_normality
+ 	      charge_stats
+ 	      rank_histogram
+ 	      mass_lower_plot
+ 	      width_stats
+ 	      width_plot
+ 	      mass_plot
+ 	      mass_lower_histogram
+ 	      mass_upper_stats
+ 	      pdg_id_histogrammass_stats
+ 	      mass_stats
+ 	      pdg_id_stats
+ 	      rank_normality
+ 	      width_lower_histogram
+ 	      width_normality
+ 	      @$_plot
+ 	      mass_lower_statsrank_plot
+ 	      rank_plot
+ 	      width_upper_histogram
+ 	      pdg_id_full_analysis
+ 	      mass_full_analysis
+ 	      charge_plot
+ 	      mass_histogram
+ 	      comprehensive_plots
+ 	      charge_normality
+ 	      mass_upper_histogram
 
 
+ Properties: 
+
+ 	0:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_upper_normality.txt
+        		87   
+
+ 	1:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_lower_full_analysis.txt
+        		278  
+
+ 	2:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_upper_plot.m
+        		977  
+
+ 	3:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/charge_full_analysis.txt
+        		280  
+
+ 	4:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_upper_full_analysis.txt
+        		279  
+
+ 	5:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_upper_normality.txt
+        		87   
+
+ 	6:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_lower_stats.txt
+        		90   
+
+ 	7:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/charge_histogram.txt
+        		7    
+
+ 	8:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_normality.txt
+        		87   
+
+ 	9:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_upper_plot.m
+        		983  
+
+ 	10:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_full_analysis.txt
+        		272  
+
+ 	11:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/(null)_plot.m
+        		20987
+
+ 	12:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/pdg_id_normality.txt
+        		86   
+
+ 	13:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_upper_full_analysis.txt
+        		278  
+
+ 	14:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/_plot.m
+        		918  
+
+ 	15:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_lower_normality.txt
+        		87   
+
+ 	16:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_lower_plot.m
+        		983  
+
+ 	17:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_lower_full_analysis.txt
+        		279  
+
+ 	18:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/rank_full_analysis.txt
+        		273  
+
+ 	19:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/pdg_id_plot.m
+        		953  
+
+ 	20:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_upper_stats.txt
+        		90   
+
+ 	21:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/rank_stats.txt
+        		91   
+
+ 	22:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_histogram.txt
+        		2084 
+
+ 	23:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_lower_normality.txt
+        		87   
+
+ 	24:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/charge_stats.txt
+        		96   
+
+ 	25:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/rank_histogram.txt
+        		6    
+
+ 	26:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_lower_plot.m
+        		977  
+
+ 	27:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_stats.txt
+        		89   
+
+ 	28:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_plot.m
+        		947  
+
+ 	29:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_plot.m
+        		941  
+
+ 	30:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_lower_histogram.txt
+        		464  
+
+ 	31:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_upper_stats.txt
+        		90   
+
+ 	32:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/pdg_id_histogram.txt
+        		12752
+
+ 	33:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_stats.txt
+        		90   
+
+ 	34:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/pdg_id_stats.txt
+        		89   
+
+ 	35:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/rank_normality.txt
+        		87   
+
+ 	36:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_lower_histogram.txt
+        		24   
+
+ 	37:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_normality.txt
+        		86   
+
+ 	38:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/@$_plot.m
+        		936  
+
+ 	39:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_lower_stats.txt
+        		90   
+
+ 	40:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/rank_plot.m
+        		941  
+
+ 	41:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/width_upper_histogram.txt
+        		39   
+
+ 	42:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/pdg_id_full_analysis.txt
+        		273  
+
+ 	43:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_full_analysis.txt
+        		272  
+
+ 	44:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/charge_plot.m
+        		953  
+
+ 	45:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_histogram.txt
+        		9188 
+
+ 	46:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/comprehensive_plots.m
+        		1706 
+
+ 	47:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/charge_normality.txt
+        		87   
+
+ 	48:       /Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles_Plottable_Fields_Full_Analysis_Results/mass_upper_histogram.txt
+        		464  
+
+
+```
+<br />
+<br />
 <img width="2056" alt="physics_particles_model" src="https://github.com/user-attachments/assets/a681d1cb-5709-4c01-8cb5-4d099206bc50" />
 
-
+<br />
 <img width="2055" alt="weather_measurements_model" src="https://github.com/user-attachments/assets/58ad0442-5667-48c4-8163-adcd23014464" />
 
 
 
-
+<br />
+<br />
 
 
 **Summary**:  
@@ -652,7 +675,9 @@ transformations, or domain-focused modeling routines, with confidence that the d
 have been cleaned and structured according to well-defined protocols.
 
 
-
+<br />
+<br />
+<br />
 
 
 

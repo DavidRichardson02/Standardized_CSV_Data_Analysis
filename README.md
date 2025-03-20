@@ -1,5 +1,3 @@
----
-
 ## 1. Introduction & High-Level Overview
 
 The project provides a robust and standardized pipeline for reading, parsing,  

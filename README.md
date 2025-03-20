@@ -1,20 +1,3 @@
-# Abstract
- This project endeavors to introduce a robust and standardized pipeline designed to handle the entire lifecycle of data from CSV files through a series of carefully orchestrated steps. By leveraging advanced techniques for data extraction, preprocessing, and statistical analysis, this project provides a comprehensive solution for transforming raw data into actionable insights.  
-
-The core logic of this project revolves around a structured and consistent pipeline that meticulously handles data from CSV files through multiple stages. This pipeline is designed to read, preprocess, evaluate, and organize data, thereby providing a structured methodology for transforming data into a usable format. Each stage of the pipeline serves a specific purpose in transforming raw data into meaningful insights, the first stage begins with reading raw CSV files, capturing input line by line and storing them in in-memory data structures. Special functions detect and handle various delimiters, ensuring accurate data capture.
-
-The preprocessing and cleaning stage addresses common data issues such as trimming problematic characters, standardizing date/time formats into Unix timestamps, and extracting units from numeric fields. As soon as columns are flagged as numeric, missing or invalid entries are replaced with suitable defaults to ensure valid contiguous data elements. 
-
-During the evaluation and extraction stage, the pipeline assesses each field to determine its type and suitability for plotting or special handling. This involves advanced techniques for type inference and dimensionality reduction for complex datasets. The organized data is then systematically written to structured directories, simplifying reuse by downstream scripts and statistical routines.
-
-The pipeline’s statistical routines iterate through each numeric column, generates and store results, and produces textual analysis summarizing each field’s key properties. Subsequent analysis applies a variety of methods—calculating standard statistics and descriptive measures, building histograms (e.g., via Freedman–Diaconis binning), and testing normality (e.g., Anderson–Darling). The modeling stage then builds on these clean numeric columns to visualize distributions for plots and fit sophisticated computational models, creating reusable MATLAB script files for further analysis.
-
-
-This uniform schema approach ensures that all data entries are cleaned and organized to adhere to established protocols. The appeal of this framework lies in its extensibility and flexibility, where the standardized data directory structures become a reusable asset, allowing users to incorporate specialized transformations, new plotting backends, new analysis routines, transformations, or domain-specific modeling steps while being confident that the data remains uniformly shaped and reliably stored.
-
-
-Ultimately, the pipeline offers a repeatable, extensible framework to transform raw, inconsistent CSV data into clean, analyzable forms, ensuring each column is properly typed, extracted, and ready for advanced statistical study. This approach ensures a coherent, repeatable, and extensible environment for CSV-based data analysis, thus providing a versatile solution suitable for diverse data-driven applications.
-
 ---
 
 ## 1. Introduction & High-Level Overview

@@ -1,5 +1,5 @@
 //  GeneralUtilities.h
-//  CSV_Data_Set_Analysis
+//  ECE-370_Standardized_CSV_Data_Analysis
 //  DavidRichardson02
 /**
  * GeneralUtilities code: Provides a collection of general utility functions that support various computational

@@ -1,5 +1,5 @@
 //  CommonDefinitions.h
-//  CSV_Data_Set_Analysis
+//  ECE-370_Standardized_CSV_Data_Analysis
 //  DavidRichardson02
 /**
  * CommonDefinitions code: The CommonDefinitions file provides a set of common constants, macros, and functions used throughout the program.

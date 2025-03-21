@@ -1,5 +1,5 @@
 //  DebuggingUtilities.h
-//  CSV_Data_Set_Analysis
+//  ECE-370_Standardized_CSV_Data_Analysis
 //  DavidRichardson02
 /**
  * DebuggingUtilities code: Provides a number of utility functions for debugging

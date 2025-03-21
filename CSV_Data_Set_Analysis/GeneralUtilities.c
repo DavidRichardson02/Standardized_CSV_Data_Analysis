@@ -1,5 +1,5 @@
 //  GeneralUtilities.c
-//  CSV_Data_Set_Analysis
+//  ECE-370_Standardized_CSV_Data_Analysis
 //  DavidRichardson02
 
 

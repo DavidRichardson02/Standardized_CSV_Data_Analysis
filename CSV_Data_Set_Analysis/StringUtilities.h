@@ -1,5 +1,5 @@
 //  StringUtilities.h
-//  CSV_Data_Set_Analysis
+//  ECE-370_Standardized_CSV_Data_Analysis
 //  DavidRichardson02
 /**
  * StringUtilities code: provides a comprehensive suite of utilities for string manipulation and analysis, primarily designed for data

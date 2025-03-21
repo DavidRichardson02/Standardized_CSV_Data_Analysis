@@ -1,5 +1,5 @@
 //  FileUtilities.h
-//  CSV_Data_Set_Analysis
+//  ECE-370_Standardized_CSV_Data_Analysis
 //  DavidRichardson02
 /**
  * FileUtilities code: Provides utility functions for handling various file-related operations.

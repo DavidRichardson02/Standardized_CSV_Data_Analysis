@@ -1,5 +1,5 @@
 //  Integrators.h
-//  CSV_Data_Set_Analysis
+//  ECE-370_Standardized_CSV_Data_Analysis
 //  DavidRichardson02
 /**
  * Integrators code: This header file defines a suite of functions for numerical integration in C, catering to a variety of methods for approximating

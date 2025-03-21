@@ -1,5 +1,5 @@
 //  main.c
-//  CSV_Data_Set_Analysis
+//  ECE-370_Standardized_CSV_Data_Analysis
 
 
 #include <stdio.h>
@@ -86,8 +86,8 @@ int main(int argc, const char * argv[])
 	/// Set up the paths for the data sets to be processed
 	/// User-Provide Pathname(Hardcoded for now)
 	const char *dataSetFilePaths[] = {
-		"/Users/98dav/Desktop/Xcode/ECE-370_Project/CSV_Data_Set_Analysis/physics_particles.txt",
-		"/Users/98dav/Desktop/Xcode/ECE-370_Project/CSV_Data_Set_Analysis/weather_measurements.txt",
+		"/Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles.txt",
+		"/Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/weather_measurements.txt",
 		///
 	};
 	
@@ -107,7 +107,7 @@ int main(int argc, const char * argv[])
 	///
 	////*
 	// /*-----------   User-Provide Pathname(Hardcoded for now)   -----------* /
-	 const char *dataSetFilePathName = "/Users/98dav/Desktop/Xcode/C-Programs/CSV_Data_Set_Analysis/physics_particles.txt"; // Pathname to data set
+	 const char *dataSetFilePathName = "/Users/98dav/Desktop/Xcode/ECE-370_Project/ECE-370_Standardized_CSV_Data_Analysis/physics_particles.txt"; // Pathname to data set
 	char **blindlyExtractedDataSet = blindly_extract_data_set(dataSetFilePathName, count_file_lines(dataSetFilePathName, MAX_NUM_FILE_LINES));
 	
 	

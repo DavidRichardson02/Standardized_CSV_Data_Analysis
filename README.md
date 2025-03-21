@@ -43,11 +43,18 @@ delimited) files. The typical flow this pipeline is designed to handle:
      visualized which is largely not within the scope or purpose of this project.
 
 <br />
+
 <img width="944" alt="Screenshot 2025-03-19 at 11 16 34 AM" src="https://github.com/user-attachments/assets/abb129d0-67fb-455a-9b96-da0b38d4b331" />
+
 <br />
-<br /><br />
-<br /><br />
-4. **Organize Data into Structured Directories**
+<br />
+<br />
+<br />
+<br />
+
+
+
+4. **Organize Data into Structured Directories:**
    - Once field types are identified, each field’s data is split out and
      systematically written to a dedicated file within a custom generated
      directory (located at the same level as the original file path) to act as
@@ -111,9 +118,13 @@ delimited) files. The typical flow this pipeline is designed to handle:
 
 <br />
 <img width="437" alt="Screenshot 2025-03-15 at 9 59 53 PM" src="https://github.com/user-attachments/assets/b5b8020d-ffd9-448b-ad6e-78545030c904" />
-<br /><br />
-<br /><br />
-6. **Model (NOT COMPLETE IN PROGRAM, WIP):**
+<br />
+<br />
+<br />
+<br />
+
+
+6. **Model:**
    - The program’s modeling phase builds upon these clean numeric columns
      to generate more advanced plots or fit more sophisticated computational
      models, such as Gaussian error functions, theoretical distributions, or
@@ -616,7 +627,10 @@ delimited) files. The typical flow this pipeline is designed to handle:
 
 <br />
 <br />
-<br /><br />
+<br />
+<br />
+
+
 **Summary**:  
 
 By successively reading, preprocessing, extracting numeric fields into  

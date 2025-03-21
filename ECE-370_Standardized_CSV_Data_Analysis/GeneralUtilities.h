@@ -62,7 +62,10 @@ double minimum(double a, double b); // Returns the minimum of two values.
 double maximum(double a, double b);  // Returns the maximum of two values.
 double min_element(double *data, int n); // Returns the minimum element in an array of values.
 double max_element(double *data, int n); // Returns the maximum element in an array of values.
-/// \}
+int max_element_int(int *data, int n); // Returns the maximum element in an array of values.
+double sum_elements(double *data, int n); // Returns the sum of all elements in an array.
+int sum_elements_int(int *data, int n); // Returns the sum of all elements in an array.
+										  /// \}
 
 
 
@@ -73,7 +76,7 @@ double max_element(double *data, int n); // Returns the maximum element in an ar
 /// \{
 time_t convert_to_unix_time(const char *dateTimeString); // Converts a date/time string into Unix time.
 struct tm *thread_safe_localtime(const time_t *tim, struct tm *result); // A thread-safe wrapper around localtime.
-/// \}
+																		/// \}
 
 
 
@@ -87,7 +90,7 @@ uint64_t double_to_uint64(double value); // Helper function to reinterpret a dou
 double uint64_to_double(uint64_t value); // Helper function to reinterpret a uint64_t as an double.
 uint64_t double_to_mapped_uint64(double value); // Helper function to map a double to an uint64_t.
 double mapped_uint64_to_double(uint64_t u); // Helper function to map a uint64_t to a double.
-/// \}
+											/// \}
 
 
 
@@ -105,7 +108,7 @@ void merge_sort(double *unsortedData, const int numElements); // Sorts an array 
 
 
 void radix_sort_doubles(double *unsortedData, const int numElements); // Sorts an array of double precision floating-point numbers by interpreting their bit patterns as unsigned 64-bit integers using Radix Sort.
-/// \}
+																	  /// \}
 
 
 
@@ -116,7 +119,7 @@ void radix_sort_doubles(double *unsortedData, const int numElements); // Sorts a
 /// \{
 void *set_memory_block(void *block, int c, size_t n); // Sets the first 'n' bytes of the memory 'block' to the value specified by 'c'. ( ~= memset)
 void *copy_memory_block(void *destination, const void *source, size_t n); // Copies the specified number of bytes from the source memory block to the destination memory block. ( ~= memcpy)
-/// \}
+																		  /// \}
 
 
 
@@ -232,3 +235,4 @@ void *copy_memory_block(void *destination, const void *source, size_t n); // Cop
  *        allowing integer sorting algorithms like Radix Sort to handle negative and positive double values correctly.
  *        After sorting, you reverse the mapping to get back the original double values.
  */
+

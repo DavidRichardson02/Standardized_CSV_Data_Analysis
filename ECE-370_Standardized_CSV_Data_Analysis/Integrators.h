@@ -66,5 +66,3 @@ double* runge_kutta_numerical_integration(int n, double x, double y, double h, d
 
 
 #endif /* Integrators_h */
-
-

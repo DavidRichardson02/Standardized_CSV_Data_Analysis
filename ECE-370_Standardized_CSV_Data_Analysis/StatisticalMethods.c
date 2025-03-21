@@ -265,7 +265,7 @@ double compute_IQR(double* data, int n)
 		sortedData[i] = data[i];
 	}
 	//memcpy(sortedData, data, n);
-	
+	memcpy(sortedData, data, n);
 	// Sort the data to prepare for IQR calculation
 	radix_sort_doubles(sortedData, n); // // Note: Sorting is required for IQR calculation. merge sort is a comparison sort algorithm(good for medium size lists and O(nlogn) in the worst case)
 	
@@ -278,18 +278,22 @@ double compute_IQR(double* data, int n)
 	
 	// Calculate the 25th and 75th percentiles based on sorted data
 	// If the number of data points is even, calculate the quartiles using the middle two points
+	int mid = (n / 2);
 	if (n % 2 == 0)
 	{
-		int mid = n / 2;
-		q25 = (sortedData[mid / 2 - 1] + sortedData[mid / 2]) / 2.0;
-		q75 = (sortedData[mid + mid / 2 - 1] + sortedData[mid + mid / 2]) / 2.0;
+		q25 = (sortedData[n / 4 - 1] + sortedData[n / 4]) / 2.0;
+		q75 = (sortedData[3 * n / 4 - 1] + sortedData[3 * n / 4]) / 2.0;
+		//q25 = (sortedData[mid / 2 - 1] + sortedData[mid / 2]) / 2.0;
+		//q75 = (sortedData[mid + mid / 2 - 1] + sortedData[mid + mid / 2]) / 2.0;
 	}
-	else  // If the number of data points is odd
+	else // If the number of data points is odd
 	{
-		int mid = (n - 1) / 2;
-		q25 = sortedData[mid / 2];
-		q75 = sortedData[mid + mid / 2];
+		q25 = sortedData[(n + 1) / 4]; // Adjusted for interpolation
+		q75 = sortedData[(3 * n + 1) / 4]; // Adjusted for interpolation
 	}
+	
+	
+	
 	
 	// Compute the IQR as the difference between the 75th and 25th quartiles
 	iqr = q75 - q25;
@@ -297,7 +301,8 @@ double compute_IQR(double* data, int n)
 	// Handle special case where IQR is zero, which can skew the bin width calculation
 	if (iqr == 0.0)
 	{
-		perror("\n\nError: Interquartile range is zero. Choose a different binning method, in 'compute_bin_width'.");
+		//perror("\n\nError: Interquartile range is zero. Choose a different binning method, in 'compute_IQR'.");
+		printf("\n\nError: Interquartile range is zero. Choose a different binning method, in 'compute_IQR'.");
 		//printf("\nq75: %lf", q75);
 		//printf("\nq25: %lf", q25);
 		//printf("\n iqr: %lf \n\n\n\n", iqr);
@@ -406,59 +411,65 @@ double compute_bin_width(double* data, int n)
 	}
 	
 	
-	// Calculating the Interquartile Range (IQR).
-	double iqr = 0.0;
-	double q25, q75;
 	
+	double iqr = compute_IQR(data, n);
+	//
+	/*
+	 // Calculating the Interquartile Range (IQR).
+	 double iqr = 0.0;
+	 double q25, q75;
+	 
+	 
+	 double *sortedData = allocate_memory_double_ptr(n);
+	 
+	 for (int i = 0; i < n; i++)
+	 {
+	 sortedData[i] = data[i];
+	 }
+	 memcpy(sortedData, data, n);
+	 
+	 radix_sort_doubles(sortedData, n); // Sorting is required for IQR calculation. merge sort is a comparison sort algorithm(good for medium size lists and O(nlogn) in the worst case)
+	 
+	 
+	 for (int i = 1; i < n; i++)
+	 {
+	 //printf("\n\nsortedData: %.17g", sortedData[i]);
+	 //printf("\n\ndata: %.17g", (*data)[i]);
+	 //sortedData[i-1] = (*data)[i-1];
+	 }
+	 
+	 // Calculate the 25th and 75th percentiles based on sorted data
+	 // Check if data size is even
+	 if (n % 2 == 0)
+	 {
+	 int mid = n / 2;
+	 q25 = (sortedData[mid / 2 - 1] + sortedData[mid / 2]) / 2.0;
+	 q75 = (sortedData[mid + mid / 2 - 1] + sortedData[mid + mid / 2]) / 2.0;
+	 }
+	 else  // If data size is odd
+	 {
+	 int mid = (n - 1) / 2;
+	 q25 = sortedData[mid / 2];
+	 q75 = sortedData[mid + mid / 2];
+	 }
+	 
+	 // Compute the Interquartile Range (IQR)
+	 iqr = q75 - q25;
+	 
+	 // Handle cases where IQR is zero (all numbers are the same)
+	 if (iqr == 0.0)
+	 {
+	 perror("\n\nError: Interquartile range is zero. Choose a different binning method, in 'compute_bin_width'.");
+	 exit(1);
+	 //printf("\nq75: %lf", q75);
+	 //printf("\nq25: %lf", q25);
+	 //printf("\n iqr: %lf \n\n\n\n", iqr);
+	 
+	 //free(sortedData);
+	 //return 0.0;
+	 }
+	 //*/
 	
-	double *sortedData = allocate_memory_double_ptr(n);
-	
-	for (int i = 0; i < n; i++)
-	{
-		sortedData[i] = data[i];
-	}
-	memcpy(sortedData, data, n);
-	
-	radix_sort_doubles(sortedData, n); // Sorting is required for IQR calculation. merge sort is a comparison sort algorithm(good for medium size lists and O(nlogn) in the worst case)
-	
-	
-	for (int i = 1; i < n; i++)
-	{
-		//printf("\n\nsortedData: %.17g", sortedData[i]);
-		//printf("\n\ndata: %.17g", (*data)[i]);
-		//sortedData[i-1] = (*data)[i-1];
-	}
-	
-	// Calculate the 25th and 75th percentiles based on sorted data
-	// Check if data size is even
-	if (n % 2 == 0)
-	{
-		int mid = n / 2;
-		q25 = (sortedData[mid / 2 - 1] + sortedData[mid / 2]) / 2.0;
-		q75 = (sortedData[mid + mid / 2 - 1] + sortedData[mid + mid / 2]) / 2.0;
-	}
-	else  // If data size is odd
-	{
-		int mid = (n - 1) / 2;
-		q25 = sortedData[mid / 2];
-		q75 = sortedData[mid + mid / 2];
-	}
-	
-	// Compute the Interquartile Range (IQR)
-	iqr = q75 - q25;
-	
-	// Handle cases where IQR is zero (all numbers are the same)
-	if (iqr == 0.0)
-	{
-		perror("\n\nError: Interquartile range is zero. Choose a different binning method, in 'compute_bin_width'.");
-		exit(1);
-		//printf("\nq75: %lf", q75);
-		//printf("\nq25: %lf", q25);
-		//printf("\n iqr: %lf \n\n\n\n", iqr);
-		
-		//free(sortedData);
-		//return 0.0;
-	}
 	
 	// Calculate the optimal bin width using the Freedman-Diaconis rule
 	double binWidth = 2.0 * iqr / pow((double)(n), 1.0 / 3.0);
@@ -473,7 +484,7 @@ double compute_bin_width(double* data, int n)
 	//printf("\n\nsorted  data ???: %.17g", (*data)[i]);
 	//}
 	//memcpy(data, sortedData, n);
-	free(sortedData);// Cleanup allocated memory
+	//free(sortedData);// Cleanup allocated memory
 	return binWidth;
 }
 
@@ -952,7 +963,7 @@ StatisticalReport analyze_plottable_data_file(const char *filePathName)
 	
 	// For a histogram, if numHistogramBins <= 0, automatically compute optimal:
 	report.histogram = compute_data_set_binning(data, n);
-
+	
 	
 	
 	// p_value could be computed by comparing ad_stat to critical values (not implemented here)
@@ -985,11 +996,11 @@ StatisticalReport analyze_numeric_data(double *data, int n, const char *outputDi
 	Histogram hist = compute_data_set_binning(data, n);
 	// Write histogram to a file
 	{
-		char histFilePath[1024];
+		char histFilePath[4096];
 		snprintf(histFilePath, sizeof(histFilePath), "%s/%s_histogram.txt", outputDirectory, fieldName);
 		FILE *histFile = fopen(histFilePath, "w+");
 		if (histFile) {
-			fprintf(histFile, "# BinStart BinEnd Count\n");
+			//fprintf(histFile, "# BinStart BinEnd Count\n");
 			for (int i=0; i<hist.num_bins; i++)
 			{
 				double bin_start = hist.min_value + i * hist.bin_width;
@@ -1003,7 +1014,7 @@ StatisticalReport analyze_numeric_data(double *data, int n, const char *outputDi
 	
 	// Write summary statistics:
 	{
-		char statsFilePath[1024];
+		char statsFilePath[4096];
 		snprintf(statsFilePath, sizeof(statsFilePath), "%s/%s_stats.txt", outputDirectory, fieldName);
 		FILE *statsFile = fopen(statsFilePath, "w+");
 		if (statsFile) {
@@ -1017,7 +1028,7 @@ StatisticalReport analyze_numeric_data(double *data, int n, const char *outputDi
 	// Potentially run normality tests (Anderson-Darling):
 	double A2 = anderson_darling_normality_test(data, n);
 	{
-		char normFilePath[1024];
+		char normFilePath[4096];
 		snprintf(normFilePath, sizeof(normFilePath), "%s/%s_normality.txt", outputDirectory, fieldName);
 		FILE *normFile = fopen(normFilePath, "w+");
 		if (normFile) {

@@ -149,10 +149,10 @@ void generate_individual_matlab_scripts(const char *resultsDir, char **fieldName
 	{
 		const char *fieldName = fieldNames[i];
 		
-		char matlabScriptPath[1024];
+		char matlabScriptPath[4096];
 		snprintf(matlabScriptPath, sizeof(matlabScriptPath), "%s/%s_plot.m", resultsDir, fieldName);
 		
-		FILE *mf = fopen(matlabScriptPath, "w+");
+		FILE *mf = fopen(matlabScriptPath, "a+");
 		if (!mf)
 		{
 			fprintf(stderr, "Error creating MATLAB plot script: %s\n", matlabScriptPath);
@@ -174,7 +174,7 @@ void generate_individual_matlab_scripts(const char *resultsDir, char **fieldName
 		
 		// Load analysis file (Mean, Std Dev)
 		fprintf(mf, "%% Load analysis to overlay normal distribution\n");
-		fprintf(mf, "A = fileread('%s_analysis.txt');\n", fieldName);
+		fprintf(mf, "A = fileread('%s_full_analysis.txt');\n", fieldName);
 		fprintf(mf, "tokens_mean = regexp(A, 'Mean:\\s*(\\S+)', 'tokens');\n");
 		fprintf(mf, "meanVal = 0; if ~isempty(tokens_mean), meanVal = str2double(tokens_mean{1}{1}); end\n");
 		fprintf(mf, "tokens_std = regexp(A, 'Std Dev:\\s*(\\S+)', 'tokens');\n");
@@ -193,7 +193,7 @@ void generate_individual_matlab_scripts(const char *resultsDir, char **fieldName
 }
 void generate_comprehensive_matlab_script(const char *analysisDir, char **fieldNames, int numFields)
 {
-	char compScriptPath[1024];
+	char compScriptPath[4096];
 	snprintf(compScriptPath, sizeof(compScriptPath), "%s/comprehensive_plots.m", analysisDir);
 	
 	FILE *comp = fopen(compScriptPath, "w+");
@@ -215,6 +215,10 @@ void generate_comprehensive_matlab_script(const char *analysisDir, char **fieldN
 	}
 	fprintf(comp, "};\n");
 	
+	
+
+	
+	
 	fprintf(comp, "numFields = length(fields);\n");
 	fprintf(comp, "for i = 1:numFields\n");
 	fprintf(comp, "    fieldName = fields{i};\n");
@@ -225,10 +229,12 @@ void generate_comprehensive_matlab_script(const char *analysisDir, char **fieldN
 	fprintf(comp, "    bar(bin_centers, counts, 1.0, 'FaceColor',[0.7 0.7 0.7]);\n");
 	fprintf(comp, "    title([fieldName ' Histogram']);\n");
 	fprintf(comp, "    xlabel('Value'); ylabel('Count');\n");
-	fprintf(comp, "    grid on; hold on;\n");
+	fprintf(comp, "    grid on;\n");
+
+	
 	
 	fprintf(comp, "    %% Load analysis (Mean, Std)\n");
-	fprintf(comp, "    A = fileread([fieldName '_analysis.txt']);\n");
+	fprintf(comp, "    A = fileread([fieldName '_full_analysis.txt']);\n");
 	fprintf(comp, "    tokens_mean = regexp(A, 'Mean:\\s*(\\S+)', 'tokens');\n");
 	fprintf(comp, "    meanVal = 0; if ~isempty(tokens_mean), meanVal = str2double(tokens_mean{1}{1}); end\n");
 	fprintf(comp, "    tokens_std = regexp(A, 'Std Dev:\\s*(\\S+)', 'tokens');\n");
@@ -237,6 +243,8 @@ void generate_comprehensive_matlab_script(const char *analysisDir, char **fieldN
 	fprintf(comp, "    y = (1/(stdVal*sqrt(2*pi))) * exp(-0.5*((x-meanVal)/stdVal).^2);\n");
 	fprintf(comp, "    max_counts = max(counts);\n");
 	fprintf(comp, "    scale_factor = max_counts / max(y);\n");
+	fprintf(comp, "	   hold on;\n");
+	// hold off %any plots entered after “hold off” will be plotted on a new graph
 	fprintf(comp, "    plot(x, y*scale_factor, 'r-', 'LineWidth', 1.5);\n");
 	fprintf(comp, "    legend('Histogram', 'Normal Fit');\n");
 	
@@ -351,7 +359,7 @@ void generate_fieldwise_modeling_scripts(const char *analysisDir, char **fieldNa
 {
 	// Optionally create a subdirectory for scripts
 	// e.g., “analysisDir/MATLAB_Scripts”
-	char scriptsDir[1024];
+	char scriptsDir[4096];
 	snprintf(scriptsDir, sizeof(scriptsDir), "%s/MATLAB_Scripts/", analysisDir);
 	create_directory(scriptsDir, "");
 	
@@ -360,7 +368,7 @@ void generate_fieldwise_modeling_scripts(const char *analysisDir, char **fieldNa
 		const char *fieldName = fieldNames[i];
 		
 		// 1) Script name
-		char scriptPath[1024];
+		char scriptPath[4096];
 		snprintf(scriptPath, sizeof(scriptPath), "%s/%s_model.m", scriptsDir, fieldName);
 		
 		FILE *mf = fopen(scriptPath, "w");
@@ -428,7 +436,7 @@ void generate_fieldwise_modeling_scripts(const char *analysisDir, char **fieldNa
  */
 void generate_comprehensive_modeling_script(const char *analysisDir, char **fieldNames, int numFields)
 {
-	char compScriptPath[1024];
+	char compScriptPath[4096];
 	snprintf(compScriptPath, sizeof(compScriptPath), "%s/comprehensive_model_plots.m", analysisDir);
 	
 	FILE *comp = fopen(compScriptPath, "w+");
@@ -573,7 +581,7 @@ void generate_modeling_matlab_scripts(const char *modelingDir, char **fieldNames
 			continue;
 		
 		// Construct the script path: e.g. <modelingDir>/<fieldName>_modeling.m
-		char matlabScriptPath[1024];
+		char matlabScriptPath[4096];
 		snprintf(matlabScriptPath, sizeof(matlabScriptPath), "%s/%s_modeling.m", modelingDir, fieldName);
 		
 		FILE *mf = fopen(matlabScriptPath, "w+");
@@ -655,7 +663,7 @@ void generate_modeling_matlab_scripts(const char *modelingDir, char **fieldNames
 void generate_modeling_matlab_script_all_fields(const char *modelingDir, char **fieldNames, int numFields)
 {
 	// e.g. .../Modeling/all_fields_modeling.m
-	char compScriptPath[1024];
+	char compScriptPath[4096];
 	snprintf(compScriptPath, sizeof(compScriptPath), "%s/all_fields_modeling.m", modelingDir);
 	
 	FILE *comp = fopen(compScriptPath, "w+");

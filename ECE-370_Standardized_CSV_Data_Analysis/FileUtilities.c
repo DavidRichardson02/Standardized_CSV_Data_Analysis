@@ -117,7 +117,7 @@ char* find_file_directory_path(const char* filePathName)
 	}
 	
 	
-
+	
 	return directoryPathName;
 }
 
@@ -409,6 +409,22 @@ int* count_file_lines_characters(const char* filePathName, int lineCount)
 
 
 
+int determine_maximum_line_length(const char* filePathName, int lineCount) // Determines the maximum line length in a file using count_file_lines_characters
+{
+	int *charCounts = count_file_lines_characters(filePathName, lineCount);
+	int maxLineLength = max_element(charCounts, lineCount);
+	free(charCounts);
+	return maxLineLength;
+}
+
+int count_characters_in_file_lines(const char* filePathName, int lineCount)
+{
+	int *charCounts = count_file_lines_characters(filePathName, lineCount);
+	int totalCharacters = sum_elements_int(charCounts, lineCount);
+	free(charCounts);
+	return totalCharacters;
+}
+
 
 /**
  * count_characters_in_file_lines_range
@@ -518,10 +534,81 @@ char** read_file_contents(const char* filePathName, int lineCount)
 	
 	// First, count the characters in each line.
 	int *charCounts = count_file_lines_characters(filePathName, lineCount);
+	size_t maxLineLength = max_element_int(charCounts, lineCount);
 	
 	
 	// Allocate memory for the array of strings.
 	char **fileContents = allocate_memory_char_ptr_ptr(MAX_STRING_SIZE, lineCount);
+	
+	size_t len = 0; // Buffer length for getline
+	size_t read; //
+	char *line = NULL;
+	int currentLine = 0;
+	
+	
+	
+	// Read the file line by line and store each line in the corresponding string.
+	while ((read = getline(&line, &len, tempFile)) != -1 && currentLine < lineCount)
+	{
+		// Allocate memory for the current line in the array.
+		fileContents[currentLine] = allocate_memory_char_ptr((charCounts[currentLine] + 1));
+		
+		
+		
+		// Copy the contents of the line into the allocated memory
+		strncpy(fileContents[currentLine], line, charCounts[currentLine]);
+		fileContents[currentLine][charCounts[currentLine]] = '\0'; // Null-terminate the string
+		
+		currentLine++;
+	}
+	free(line);
+	free(charCounts);
+	fclose(tempFile);
+	
+	
+	return fileContents;
+}
+
+
+
+/**
+ * parse_file_contents
+ *
+ * Reads the contents of a file into an array of strings.
+ * This function opens a file and reads its contents line by line, counting the characters in each line,
+ * and then reading each line into a dynamically allocated array of strings (char pointers).
+ * Each line is stored in the array up to the specified lineCount.
+ *
+ * @param filePathName A string representing the path of the file to be read.
+ * @param lineCount An integer specifying the number of lines to read from the file.
+ * @return A pointer to an array of strings, each string holding the content of a line.
+ */
+char** parse_file_contents(const char* filePathName, int lineCount) // Conditionally reads the contents of a file into a string array
+{
+	// Checking if the filePathName is NULL or if lineCount is less than or equal to 0.
+	// If so, return NULL as it's not possible to read the file contents under these conditions.
+	if (filePathName == NULL || lineCount <= 0)
+	{
+		perror("\n\nError:filePathName is NULL or if lineCount is less than or equal to 0 in 'parse_file_contents'.");
+		return NULL;
+	}
+	
+	
+	//Open the file at the specified path and ensure file is opened properly.
+	FILE *tempFile = fopen(filePathName, "r");
+	if (!tempFile)
+	{
+		perror("\n\nError: Unable to open file for 'parse_file_contents'.");
+		exit(1);
+	}
+	
+	
+	// First, count the characters in each line.
+	int *charCounts = count_file_lines_characters(filePathName, lineCount);
+	size_t maxLineLength = max_element_int(charCounts, lineCount);
+	
+	// Allocate memory for the array of strings.
+	char **fileContents = allocate_memory_char_ptr_ptr(maxLineLength+1, lineCount);
 	
 	size_t len = 0; // Buffer length for getline
 	size_t read; //
@@ -595,7 +682,6 @@ char** read_file_contents(const char* filePathName, int lineCount)
 	
 	return fileContents;
 }
-
 
 
 
@@ -703,7 +789,7 @@ void write_file_numeric_data(const char *filename, double *data, int countDataEn
 		// Unnecessary, keeping for reference.
 		//if(i == countDataEntries-1)
 		//{
-			//fputc('\n', file); //
+		//fputc('\n', file); //
 		//}
 	}
 	
@@ -1119,7 +1205,7 @@ char **get_file_names_in_directory(const char *directoryPath)
 	
 	// Allocate memory for the array of file names
 	char **fileNames = (char**)malloc(fileCount * sizeof(char*));// = allocate_memory_char_ptr_ptr(MAX_STRING_SIZE, count_files_in_directory(directoryPath) + 1); // +1 for safety/null termination
-
+	
 	
 	// Extract the file names from the full pathnames
 	for (int i = 0; i < fileCount && filePaths[i] != NULL; i++)
@@ -1212,15 +1298,51 @@ void print_directory_propertiees(DirectoryProperties fileDirectory)
 	printf("\n Dataset Directory %s\n", fileDirectory.directoryName);
 	printf("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 	printf("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-	printf("\n|\n| Directory Pathname: %-5s", fileDirectory.directoryPathName);
-	printf("\n| Count of Files: %-5d", fileDirectory.fileCount);
-	printf("\n|\n| Files in Directory: \n|");
+	
+	
+	printf("\n\n Directory Pathname: %-5s", fileDirectory.directoryPathName);
+	printf("\n Count of Files: %-5d", fileDirectory.fileCount);
+	printf("\n Files in Directory: ");
+	
+	
+	char **writtenDataSetFilePaths = get_file_pathnames_in_directory(fileDirectory.directoryPathName);
+	int fileCount = fileDirectory.fileCount;
+	
+	// Allocate memory for the array of file names
+	char **writtenDataSetFileNames = (char**)malloc(fileCount * sizeof(char*));// = allocate_memory_char_ptr_ptr(MAX_STRING_SIZE, count_files_in_directory(directoryPath) + 1); // +1 for safety/null termination
+	int *characterCounts = (int*)malloc(fileCount * sizeof(int));
+	
+	
+	// Extract the file names from the full pathnames
+	for (int i = 0; i < fileCount && writtenDataSetFilePaths[i] != NULL; i++)
+	{
+		char* fName = find_name_from_path(writtenDataSetFilePaths[i]);
+		size_t fNameLength = string_length(fName);
+		writtenDataSetFileNames[i] = allocate_memory_char_ptr(fNameLength + 1);
+		writtenDataSetFileNames[i] = fName;
+		
+		
+		characterCounts[i] = count_characters_in_file_lines(writtenDataSetFilePaths[i], MAX_NUM_FILE_LINES);
+		//free(fName);
+	}
+	
+	
+	
 	for(int i = 0; i < fileDirectory.fileCount; i++)
 	{
-		printf("\n| 	%d:       %-5s", i, fileDirectory.fileProperties[i].fileName);
-		printf("\n| 	%d:       %-5s", i, fileDirectory.fileProperties[i].filePathName);
-		printf("\n| 	%d:       %-5s", i, fileDirectory.fileProperties[i].fileExtension);
-		printf("\n| 	%d:       %-5d\n|", i, fileDirectory.fileProperties[i].fileLineCount);
+		printf("\n 	      %-5s", writtenDataSetFileNames[i]);
+	}
+	
+	
+	printf("\n\n\n Properties: \n");
+	for(int i = 0; i < fileDirectory.fileCount; i++)
+	{
+	
+	   printf("\n 	%d:       %-5s", i, writtenDataSetFilePaths[i]);
+	   printf("\n        		%-5d\n", characterCounts[i]);
+		//printf("\n| 	%d:       %-5s\n|", i, fileDirectory.fileProperties[i].filePathName);
+		//printf("\n| 	%d:       %-5s", i, fileDirectory.fileProperties[i].fileExtension);
+		//printf("\n| 	%d:       %-5d\n|", i, fileDirectory.fileProperties[i].fileLineCount);
 		
 	}
 	

@@ -323,11 +323,80 @@ double max_element(double *data, int n)
 }
 
 
+int max_element_int(int *data, int n)
+{
+	if(data == NULL)
+	{
+		perror("\n\nError: Data to find max element from was NULL in 'max_element_int'.\n");
+		exit(1);
+	}
+	
+	int max_elem = NAN; // Initialize to the smallest possible integer value
+	for (int i = 0; i < n; i++) // Check from the start
+	{
+		if (!isnan(data[i]))
+		{
+			max_elem = data[i]; // Found the first non-NaN element.
+			break;
+		}
+	}
+	
+	
+	for(int i = 1; i < n; i++) // Continue from where we left off
+	{
+		if (!isnan(data[i])) // Check if the value is not NaN
+		{
+			max_elem = maximum(max_elem, data[i]);
+		}
+	}
+	
+	
+	return max_elem;
+}
+
+/**
+ * sum_elements
+ *
+ * Sums the elements in an array of doubles.
+ * @param data The array of doubles.
+ * @param n The number of elements in the array.
+ * @return The maximum element, or NaN if the array is NULL or only contains NaNs.
+ */
+double sum_elements(double *data, int n)
+{
+	if(data == NULL)
+	{
+		perror("\n\nError: Data to sum elements from was NULL in 'sum_elements'.\n");
+		exit(1);
+	}
+	
+	double sum = 0.0;
+	for(int i = 0; i < n; i++)
+	{
+		sum += data[i];
+	}
+	
+	return sum;
+}
 
 
 
-
-
+int sum_elements_int(int *data, int n)
+{
+	if(data == NULL)
+	{
+		perror("\n\nError: Data to sum elements from was NULL in 'sum_elements_int'.\n");
+		exit(1);
+	}
+	
+	int sum = 0;
+	for(int i = 0; i < n; i++)
+	{
+		sum += data[i];
+	}
+	
+	return sum;
+}
 
 
 
@@ -937,6 +1006,7 @@ void *copy_memory_block(void *destination, const void *source, size_t n)
 	}
 	return destination;
 }
+
 
 
 

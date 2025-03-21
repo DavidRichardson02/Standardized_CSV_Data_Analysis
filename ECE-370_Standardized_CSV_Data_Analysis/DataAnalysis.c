@@ -58,7 +58,7 @@
 DataSetProperties analyze_data_set_properties(const char *filePathName)
 {
 	int lineCount = count_file_lines(filePathName, MAX_NUM_FILE_LINES);
-	char **fileContents = read_file_contents(filePathName, lineCount);
+	char **fileContents = parse_file_contents(filePathName, lineCount);
 	const char *delimiter = identify_delimiter(fileContents, lineCount);
 	int fieldCount = count_data_fields(fileContents[0]);
 	char **formattedContents = extract_and_format_data_set(fileContents, lineCount, fieldCount, delimiter);
@@ -66,8 +66,8 @@ DataSetProperties analyze_data_set_properties(const char *filePathName)
 	
 	
 	int *missingDataCount = count_missing_values(formattedContents, lineCount, fieldCount, delimiter, formattedContents[1]);;
-	int *plottabilityStatus = identify_plottable_fields(nameTypePairs, fieldCount, ":");
-	char** commonDataTypes = determine_common_data_entry_types(formattedContents, lineCount, fieldCount, delimiter);
+	int *plottabilityStatus = identify_plottable_fields(nameTypePairs, fieldCount, ";");
+	//char** commonDataTypes = determine_common_data_entry_types(formattedContents, lineCount, fieldCount, delimiter);
 	char **fieldNamesTokenized = split_tokenized_string(formattedContents[0], delimiter, fieldCount);
 	char *plottableFieldNames;
 	for(int i = 0; i < fieldCount; i++)
@@ -107,7 +107,7 @@ DataSetProperties analyze_data_set_properties(const char *filePathName)
 	
 	dataSetProperties.missingDataCount = missingDataCount;
 	dataSetProperties.plottabilityStatus = plottabilityStatus;
-	dataSetProperties.commonDataTypes = commonDataTypes;
+	dataSetProperties.commonDataTypes = determine_common_data_entry_types(formattedContents, lineCount, fieldCount, delimiter);;//commonDataTypes;
 	dataSetProperties.dataSetFileContents = formattedContents;
 	
 	
@@ -127,8 +127,12 @@ DataSetProperties capture_data_set_configurations(const char *filePathName, char
 {
 	char **nameTypePairs = capture_data_set_header_for_plotting(formattedContents[0], formattedContents, delimiter);
 	int *missingDataCount = count_missing_values(formattedContents, lineCount, fieldCount, delimiter, formattedContents[1]);;
-	int *plottabilityStatus = identify_plottable_fields(nameTypePairs, fieldCount, ":");
+	int *plottabilityStatus = identify_plottable_fields(nameTypePairs, fieldCount, ";");
+	
+	
 	char **commonDataTypes = determine_common_data_entry_types(formattedContents, lineCount, fieldCount, delimiter);
+	
+	
 	char **fieldNamesTokenized = split_tokenized_string(formattedContents[0], delimiter, fieldCount);
 	//printf("\n\nformattedContents fieldCount %d: %s", fieldCount, formattedContents[0]);
 	//print_string_array(fieldNamesTokenized, fieldCount, "fieldNamesTokenized");
@@ -205,7 +209,7 @@ DataSetAnalysis configure_data_set_analysis(DataSetProperties dataSetProperties,
 	
 	
 	DataSetAnalysis configuredDataSet;
-	configuredDataSet.dataSetProperties = dataSetProperties;
+	configuredDataSet.dataSetProperties = &dataSetProperties;
 	
 	
 	configuredDataSet.radixSortedData = radixSortedData;
@@ -262,7 +266,7 @@ DataSetAnalysis process_data_set_for_analysis(const char* dataSetFilePathName)
 {
 	/*-----------   Capture File Contents in an Array of Strings   -----------*/
 	int lineCount = count_file_lines(dataSetFilePathName, MAX_NUM_FILE_LINES);
-	char **fileContents = read_file_contents(dataSetFilePathName, lineCount);
+	char **fileContents = parse_file_contents(dataSetFilePathName, lineCount);
 	const char *delimiter = identify_delimiter(fileContents, lineCount);
 	
 	
@@ -276,16 +280,18 @@ DataSetAnalysis process_data_set_for_analysis(const char* dataSetFilePathName)
 	
 	/*-----------   Extract and Format Data   -----------*/ ///*footnote 1.1 in 'DataAnalysis.h'*
 	char **formattedContents = extract_and_format_data_set(fileContents, lineCount, fieldCount, delimiter);
-	DataSetProperties dataSetProperties = capture_data_set_configurations(dataSetFilePathName, formattedContents, lineCount, fieldCount, delimiter);
-	
-	
-	
+	//DataSetProperties dataSetProperties = capture_data_set_configurations(dataSetFilePathName, formattedContents, lineCount, fieldCount, delimiter);
+	DataSetProperties dataSetProperties = analyze_data_set_properties(dataSetFilePathName);
+	print_string_array(formattedContents, lineCount, "Formatted Extraction of File Contents    -->    Preprocessing");
 	
 	
 	/*-----------   Process and Store Data   -----------*/ ///*footnote 1.2 in 'DataAnalysis.h'*
 	const char *preprocessedDataDirectory = write_data_set(formattedContents, dataSetFilePathName, lineCount, fieldCount, delimiter);
 	DataSetAnalysis dataAnalysis = configure_data_set_analysis(dataSetProperties, preprocessedDataDirectory);
 	
+	
+	
+	print_string_array(dataAnalysis.dataSetProperties->fieldNameTypePairs, fieldCount, "Pairs of field names and their corresponding types in 'process_data_set_for_analysis'");
 	printf("\n\n\n\n\n\n\n\n***********************************************************************");
 	printf("\n Preliminary extraction and preprocessing of data set complete.");
 	// list the primary markers achieved in the preliminary phase of the data set analysis
@@ -315,7 +321,7 @@ const char *preprocess_data_set_for_analysis(const char* dataSetFilePathName)
 {
 	/*-----------   Capture File Contents in an Array of Strings   -----------*/
 	int lineCount = count_file_lines(dataSetFilePathName, MAX_NUM_FILE_LINES);
-	char **fileContents = read_file_contents(dataSetFilePathName, lineCount);
+	char **fileContents = parse_file_contents(dataSetFilePathName, lineCount);
 	const char *delimiter = identify_delimiter(fileContents, lineCount);
 	
 	
@@ -329,6 +335,8 @@ const char *preprocess_data_set_for_analysis(const char* dataSetFilePathName)
 	
 	/*-----------   Extract and Format Data   -----------*/ ///*footnote 1.1 in 'DataAnalysis.h'*
 	char **formattedContents = extract_and_format_data_set(fileContents, lineCount, fieldCount, delimiter);
+	
+	
 	print_file_contents(formattedContents, lineCount);
 	
 	/*-----------   Process and Store Data   -----------*/ ///*footnote 1.2 in 'DataAnalysis.h'*
@@ -355,7 +363,15 @@ const char *preprocess_data_set_for_analysis(const char* dataSetFilePathName)
 
 
 
-
+char **blindly_extract_data_set(const char* dataSetFilePathName, int lineCount)
+{
+	/*-----------   Capture File Contents in an Array of Strings   -----------*/
+	char **fileContentsVerbatim = read_file_contents(dataSetFilePathName, lineCount);
+	print_string_array(fileContentsVerbatim, lineCount, "Blind extraction of File Contents    -->    Formatting");
+	
+	
+	return fileContentsVerbatim;
+}
 
 
 
@@ -365,6 +381,22 @@ const char *perform_full_analysis_and_modeling(const char *preprocessedDataDirec
 	// Create a results directory for analysis
 	char *resultsDirectory = combine_strings(preprocessedDataDirectoryPath, "_Full_Analysis_Results");
 	create_directory(resultsDirectory, ""); // create_directory ensures directory creation
+	
+	
+	//
+	/*
+	 // Create a results directory for analysis
+	 char *resultsDirectoryForAppend = (char*)malloc(string_length("_Full_Analysis_Results") + 1 * sizeof(char));
+	 resultsDirectoryForAppend = "_Full_Analysis_Results";
+	 
+	 
+	 char *resultsDirectory = combine_strings(preprocessedDataDirectoryPath, resultsDirectoryForAppend);
+	 char *resultsDirectoryName = find_name_from_path(resultsDirectory);
+	 create_directory(resultsDirectory, resultsDirectoryName); // create_directory ensures directory creation
+	 
+	 
+	 */
+	
 	
 	// Get list of plottable data files in preprocessed directory
 	int fileCount = count_files_in_directory(preprocessedDataDirectoryPath);
@@ -397,8 +429,20 @@ const char *perform_full_analysis_and_modeling(const char *preprocessedDataDirec
 		double *data = allocate_memory_double_ptr(lineCount - 1);
 		for (int j = 1; j < lineCount; j++)
 		{
-			data[j-1] = atof(contents[j]);
+			if(j == (lineCount-2))
+			{
+				data[j] = atof(contents[j]);
+			}
+			else
+			{
+				data[j-1] = atof(contents[j]);
+			}
+			
 		}
+		
+		//print_array(lineCount, data, fieldName);
+		
+		
 		int n = lineCount - 1;
 		deallocate_memory_char_ptr_ptr(contents, lineCount);
 		
@@ -445,7 +489,7 @@ const char *perform_full_analysis_and_modeling(const char *preprocessedDataDirec
 	}
 	//generational_individuality_matlabulous_scriptorion
 	generate_individual_matlab_scripts(resultsDirectory, fieldNames, count_files_in_directory(resultsDirectory));
-	//generational_comprehensivity_matacular_scriptivation(resultsDirectory, fieldNames, count_files_in_directory(resultsDirectory));
+	generate_comprehensive_matlab_script(resultsDirectory, fieldNames, count_files_in_directory(resultsDirectory));
 	
 	
 	

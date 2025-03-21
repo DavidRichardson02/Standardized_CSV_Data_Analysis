@@ -242,7 +242,7 @@ char** capture_data_set_header_for_plotting(char* headerContents, char** fileCon
 	while(token && formatIndex < fieldCount)
 	{
 		strcpy(fieldIndexing[formatIndex], token); // Copy the token into fieldIndexing
-		strcat(fieldIndexing[formatIndex], ":");   // Append the type delimiter.
+		strcat(fieldIndexing[formatIndex], ";");   // Append the type delimiter.
 		strcat(fieldIndexing[formatIndex], dataTypes[formatIndex]); // Append the data type.
 		
 		
@@ -309,6 +309,10 @@ char** determine_data_entry_types(const char *dataEntry, int fieldCount, const c
 	
 	free(dataCopy);
 	
+
+	//print_string_array(dataFields, fieldCount, "determine_data_entry_types");
+	
+	
 	
 	// Ensure all allocated memory is freed if an early return or exception occurs
 	if (token == NULL && fieldIndex < fieldCount)
@@ -321,7 +325,7 @@ char** determine_data_entry_types(const char *dataEntry, int fieldCount, const c
 		return NULL;
 	}
 	
-	print_string_array(dataFields, fieldCount, "determine_data_entry_types");
+	
 	
 	return dataFields;
 }
@@ -474,7 +478,7 @@ char** determine_common_data_entry_types(const char **dataEntries, int entryCoun
 	
 	
 	
-	print_string_array(commonDataTypes, fieldCount, "determine_common_data_entry_types");
+	//print_string_array(commonDataTypes, fieldCount, "determine_common_data_entry_types");
 	
 	
 	return commonDataTypes; // Return the array of most common data types.
@@ -531,7 +535,7 @@ char *format_data_entry_for_plotting(char *headerLine, char* dataEntry, int fiel
 		free(formattedDataEntry);
 		return NULL;
 	}
-	print_string_array(dataTypes, fieldCount, "format_data_entry_for_plotting dataTypes");
+	//print_string_array(dataTypes, fieldCount, "format_data_entry_for_plotting dataTypes");
 	
 	// Process each field based on its data type.
 	while(token && formatIndex < fieldCount)
@@ -790,7 +794,7 @@ char** capture_data_set_for_plotting(char** fileContents, int lineCount, const c
 	
 	
 	/// Identify plottable fields and store the plottability status in an integer array as 1 for plottable and 0 for unplottable
-	int *plottabilityStatus = identify_plottable_fields(fileHeader, fieldCount, ":");
+	int *plottabilityStatus = identify_plottable_fields(fileHeader, fieldCount, ";");
 	
 	
 	
@@ -844,15 +848,14 @@ char** capture_data_set_for_plotting(char** fileContents, int lineCount, const c
 			
 		}
 	}
-	
+	//print_string_array(fieldNames, plottableFieldCount, "Plottable Field Names");
 	
 	
 	// Concatenate field names into a single string and set as the first line of the processed dataset
 	char* headerString = concatenate_string_array(fieldNames, plottableFieldCount, delimiter);
 	processedDataSet[0] = headerString;
 	
-	
-	print_string_array(processedDataSet, lineCount, "Processed Data Set in 'capture_data_set_for_plotting'");
+
 	
 	return processedDataSet;
 }
@@ -1033,9 +1036,6 @@ const char *write_plottable_data(char** dataSetContents, char *headerLine, const
 	// capture the results of the analysis in a file, where the name is generated based on the test performed and the numbers are stored inside
 	
 	
-	
-	
-	
 	char **dataSetFieldNames = split_tokenized_string(dataSetContents[0], delimiter, fieldCount);
 	char **fileHeader = capture_data_set_header_for_plotting(dataSetContents[0], dataSetContents, delimiter);
 	
@@ -1047,7 +1047,7 @@ const char *write_plottable_data(char** dataSetContents, char *headerLine, const
 	
 	
 	/// Identify plottable fields and store the plottability status in an integer array as 1 for plottable and 0 for unplottable
-	int *plottabilityStatus = identify_plottable_fields(dataSetFieldNames, fieldCount, ":");
+	int *plottabilityStatus = identify_plottable_fields(dataSetFieldNames, fieldCount, ";");
 	//printf("\n\n\n\n-----plottabilityStatus-----: \n");
 	for (int i = 0; i < fieldCount; i++)
 	{
@@ -1109,11 +1109,11 @@ const char *write_plottable_data(char** dataSetContents, char *headerLine, const
 	
 	
 	/// OMITTED, an additional file with all the plottable fields combined into a single file, the individual fields are already stored separately
-	const char *plottingDataFilePathName = combine_strings(extractedDataDirectory, ".txt");
-	FILE *file = fopen(plottingDataFilePathName, "w+");
-	for(int i = 0; i < plottableFieldCount; i++)
-	{ write_file_numeric_data(plottingDataFilePathName, plottableDataSet[i], lineCount, dataSetFieldNames[i]); }
-	fclose(file);
+	//const char *plottingDataFilePathName = combine_strings(extractedDataDirectory, ".txt");
+	//FILE *file = fopen(plottingDataFilePathName, "w+");
+	//for(int i = 0; i < plottableFieldCount; i++)
+	//{ write_file_numeric_data(plottingDataFilePathName, plottableDataSet[i], lineCount, dataSetFieldNames[i]); }
+	//fclose(file);
 	
 	
 	
@@ -1141,7 +1141,7 @@ const char *write_data_set(char** fileContents, const char *filePathName, int li
 	// Process the dataset for plotting
 	/*-----------   Write the NON-Plottable Data to Files   -----------*/
 	char **plottingData = capture_data_set_for_plotting(fileContents, lineCount, delimiter);  // Capture data suitable for plotting.
-																							
+	
 	
 	
 	
@@ -1153,7 +1153,7 @@ const char *write_data_set(char** fileContents, const char *filePathName, int li
 	// Create a directory for plottable data fields
 	char *dataDirectory = create_directory(filePathName, "_Plottable_Fields"); // Create a directory for this CSV file's plottable data fields.
 	
-
+	
 	// The directory to be created at the same level and location as the passed in file pathname
 	directoryPathName = combine_strings(directoryPathName, fileName);
 	directoryPathName = combine_strings(directoryPathName, "_Plottable_Fields");
@@ -1167,6 +1167,7 @@ const char *write_data_set(char** fileContents, const char *filePathName, int li
 	write_plottable_data(plottingData, fileContents[0], directoryPathName, fileName, lineCount, delimiter);
 	
 	
+	print_string_array(plottingData, lineCount, "Preprocessed Extraction of File Contents    -->    Plottability");
 	
 	
 	/// Cleanup memory

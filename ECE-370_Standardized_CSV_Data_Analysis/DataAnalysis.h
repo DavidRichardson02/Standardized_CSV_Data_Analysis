@@ -1,5 +1,5 @@
 //  DataAnalysis.h
-//  ECE-370_Standardized_CSV_Data_Analysis
+//  ECE-370_]p
 //  DavidRichardson02
 
 
@@ -94,9 +94,9 @@ DataSetProperties capture_data_set_configurations(const char *filePathName, char
  */
 typedef struct
 {
-	DataSetProperties dataSetProperties;
+	DataSetProperties *dataSetProperties;
 	double **radixSortedData;
-
+	
 	
 	
 	DirectoryProperties plottableDataDirectory;
@@ -116,7 +116,7 @@ const char *preprocess_data_set_for_analysis(const char* dataSetFilePathName);
 DataSetAnalysis analyze_preprocessed_data_set(DataSetAnalysis );
 
 
-
+char **blindly_extract_data_set(const char* dataSetFilePathName, int lineCount);
 
 //const char *perform_statistical_analysis(const char *preprocessedDataDirectoryPath);
 //const char *perform_statistical_analysis_on_plottable_data(const char *plottableDataDirectory);

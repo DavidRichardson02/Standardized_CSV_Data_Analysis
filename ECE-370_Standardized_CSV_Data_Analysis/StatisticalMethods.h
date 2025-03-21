@@ -128,7 +128,7 @@ typedef struct
 	double std_dev;
 	double skewness;
 	double ad_stat; // Anderson-Darling statistic
-	//double p_value; // if computed
+					//double p_value; // if computed
 	Histogram histogram;
 } StatisticalReport;
 

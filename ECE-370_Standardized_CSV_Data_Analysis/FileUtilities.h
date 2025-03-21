@@ -44,7 +44,9 @@ int count_plot_data_fields(char* lineContents, const char *delimiter); // Counts
 int count_file_lines(const char* filePathName, int maxLines); // Counts the lines in a file up to a specified maximum
 int* count_file_lines_characters(const char* filePathName, int lineCount); // Counts characters in each line of a file
 int* count_characters_in_file_lines_range(const char* filePathName, int lineCount, int startLine); // Counts characters in each line in a specified range of lines of a file
-/// \}
+int determine_maximum_line_length(const char* filePathName, int lineCount); // Determines the maximum line length in a file
+int count_characters_in_file_lines(const char* filePathName, int lineCount); // Counts characters in each line of a file to sum all characters.
+																			/// \}
 
 
 
@@ -55,7 +57,8 @@ int* count_characters_in_file_lines_range(const char* filePathName, int lineCoun
 
 // ------------- Helper Functions for File I/O Operations -------------
 /// \{
-char** read_file_contents(const char* filePathName, int lineCount); // Reads the contents of a file into a string array
+char** read_file_contents(const char* filePathName, int lineCount); // Blindly reads the contents of a file into a string array
+char** parse_file_contents(const char* filePathName, int lineCount); // Conditionally reads the contents of a file into a string array
 void write_file_contents(const char *filename, char **fileContents); // Writes content to a file from a char array
 void write_file_numeric_data(const char *filename, double *data, int countDataEntries, const char *dataFieldName); // Writes data to a file from a double array
 char* generate_merged_filename(const char* filePath1, const char* filePath2);
@@ -74,7 +77,7 @@ int delete_directory(const char *filePathName); // Deletes a directory based on 
 int count_files_in_directory(const char *directoryPath); // Counts the number of files in a directory
 char **get_file_pathnames_in_directory(const char *directoryPath); // Retrieves the pathnames of all files contained within a directory
 char **get_file_names_in_directory(const char *directoryPath); // Retrieves the names of all files contained within a directory
-/// \}
+															   /// \}
 
 
 
@@ -362,5 +365,3 @@ void print_directory_propertiees(DirectoryProperties fileDirectory);
  *     as steps for correcting potential issues.
  */
 /// \}
-
-

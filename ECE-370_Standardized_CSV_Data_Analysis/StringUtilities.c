@@ -881,6 +881,79 @@ bool string_array_contains_date_time(char **stringArray, int stringCount, const 
 
 
 
+char *determine_string_occurence(char *queryString, char *searchString) // Determines if a string occurs in another string.
+{
+	// Check for NULL input and handle error.
+	if (queryString == NULL || searchString == NULL)
+	{
+		perror("\n\nError: queryString or searchString was NULL in 'determine_string_occurence'.\n");
+		return NULL;
+	}
+	
+	// Check if the search string is empty.
+	if (string_length(searchString) == 0)
+	{
+		return NULL;
+	}
+	
+	// Find the first occurrence of the search string in the query string.
+	char *occurrence = strstr(queryString, searchString);
+	
+	// If the search string is not found, return NULL.
+	if (occurrence == NULL)
+	{
+		return NULL;
+	}
+	
+	// Allocate memory for the result string.
+	char *result = (char *)malloc((string_length(queryString) + 1) * sizeof(char));
+	
+	// Copy the query string into the result string.
+	strcpy(result, queryString);
+	
+	// Find the index of the first occurrence of the search string in the query string.
+	//int index = occurrence - queryString; // Pointer arithmetic to find the index.
+	
+	// Insert a null terminator at the index of the first occurrence of the search string.
+	//result[index] = '\0';
+	
+	return result;
+}
+
+
+char *find_string_in_string_array(char **stringArray, int stringCount, const char *searchString) // Finds a string in an array of strings.
+{
+	// Check for NULL input and handle error.
+	if (stringArray == NULL || searchString == NULL)
+	{
+		perror("\n\nError: stringArray or searchString was NULL in 'find_string_in_string_array'.\n");
+		return NULL;
+	}
+	
+	// Iterate over each string in the array.
+	for (int i = 0; i < stringCount; i++)
+	{
+		// Check if the search string is found in the current string.
+		if (strstr(stringArray[i], searchString) != NULL)
+		{
+			// Allocate memory for the result string.
+			char *result = (char *)malloc((string_length(stringArray[i]) + 1) * sizeof(char));
+			
+			// Copy the current string into the result string.
+			strcpy(result, stringArray[i]);
+			
+			return result;
+		}
+	}
+	
+	return NULL;
+}
+
+
+
+
+
+
 
 /**
  * find_potential_delimiters
@@ -1395,7 +1468,7 @@ char *combine_strings(const char* characterString1, const char* characterString2
 	
 	
 	/* Determine Count of Characters of Both Strings and Allocate Memory Appropriately */
-	int characterCount = string_length(characterString1) + 1 + string_length(characterString2) + 1;
+	size_t characterCount = string_length(characterString1) + 1 + string_length(characterString2) + 1;
 	char *combinedString = (char*)malloc(characterCount * sizeof(char));   //Allocate memory based on character count.
 	
 	

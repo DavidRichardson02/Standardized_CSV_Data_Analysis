@@ -52,7 +52,7 @@ int* identify_plottable_fields(char** fieldNameTypePairs, int fieldCount, const 
 char** capture_plottable_fields(char *headerLine, char* dataEntry, int fieldCount, const char *delimiter); // Captures fields from a data entry suitable for plotting.
 char *format_data_entry_for_plotting(char *headerLine, char* dataEntry, int fieldCount, const char *delimiter); // Formats a data entry for plotting, ensuring correct data type for each field.
 char** capture_data_set_for_plotting(char** fileContents, int lineCount, const char *delimiter); // Processes a dataset for plotting by extracting and formatting numeric fields.
-/// \}
+																								 /// \}
 
 
 
@@ -64,7 +64,7 @@ char** capture_data_set_for_plotting(char** fileContents, int lineCount, const c
 double **extract_radix_sorted_data(char** dataSetContents, int lineCount, int fieldCount, const char *delimiter); // Extracts all plottable data fields from the dataset and radix sorts them(maintaining relative positions).
 double *extract_plottable_data_field(char** dataSetContents, int fieldIndex, int fieldCount, const char *delimiter); // Writes the plottable data extracted from the dataset to files.
 double **extract_plottable_data(char** dataSetContents, int lineCount, int fieldCount, const char *delimiter); // Extracts all plottable data fields from the dataset and writes them into separate files.
-/// \}
+																											   /// \}
 
 
 
@@ -75,7 +75,7 @@ double **extract_plottable_data(char** dataSetContents, int lineCount, int field
 /// \{
 const char *write_plottable_data(char** dataSetContents, char *headerLine, const char *dataDirectory, char *dataSetFileName, int lineCount, const char *delimiter); // Writes the plottable data extracted from the dataset to files, returns the pathname to the directory of contained files.
 const char *write_data_set(char** fileContents, const char *filePathName, int lineCount, int fieldCount, const char *delimiter); // Processes and writes a dataset to files, separating plottable and non-plottable data.
-/// \}
+																																 /// \}
 
 
 

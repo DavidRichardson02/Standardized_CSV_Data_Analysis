@@ -6,6 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E08399822D42F557004331F0 /* DataSetModeling.c in Sources */ = {isa = PBXBuildFile; fileRef = E08399812D42F557004331F0 /* DataSetModeling.c */; };
+		E0F239A42D11442200E2717B /* CommonDefinitions.c in Sources */ = {isa = PBXBuildFile; fileRef = E0F239902D11442200E2717B /* CommonDefinitions.c */; };
+		E0F239A52D11442200E2717B /* DataAnalysis.c in Sources */ = {isa = PBXBuildFile; fileRef = E0F239922D11442200E2717B /* DataAnalysis.c */; };
+		E0F239A62D11442200E2717B /* DebuggingUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = E0F239942D11442200E2717B /* DebuggingUtilities.c */; };
+		E0F239A72D11442200E2717B /* FileUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = E0F239962D11442200E2717B /* FileUtilities.c */; };
+		E0F239A82D11442200E2717B /* GeneralUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = E0F239982D11442200E2717B /* GeneralUtilities.c */; };
+		E0F239A92D11442200E2717B /* Integrators.c in Sources */ = {isa = PBXBuildFile; fileRef = E0F2399A2D11442200E2717B /* Integrators.c */; };
+		E0F239AA2D11442200E2717B /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = E0F2399B2D11442200E2717B /* main.c */; };
+		E0F239AC2D11442200E2717B /* StatisticalMethods.c in Sources */ = {isa = PBXBuildFile; fileRef = E0F2399F2D11442200E2717B /* StatisticalMethods.c */; };
+		E0F239AD2D11442200E2717B /* StringUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = E0F239A12D11442200E2717B /* StringUtilities.c */; };
+		E0F239B02D11500D00E2717B /* DataExtraction.c in Sources */ = {isa = PBXBuildFile; fileRef = E0F239AF2D11500D00E2717B /* DataExtraction.c */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		E0F2395B2D1141AE00E2717B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -19,16 +33,29 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E08399802D42F557004331F0 /* DataSetModeling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataSetModeling.h; sourceTree = "<group>"; };
+		E08399812D42F557004331F0 /* DataSetModeling.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = DataSetModeling.c; sourceTree = "<group>"; };
 		E0F2395D2D1141AE00E2717B /* ECE-370_Standardized_CSV_Data_Analysis */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "ECE-370_Standardized_CSV_Data_Analysis"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0F2398F2D11442200E2717B /* CommonDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefinitions.h; sourceTree = "<group>"; };
+		E0F239902D11442200E2717B /* CommonDefinitions.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CommonDefinitions.c; sourceTree = "<group>"; };
+		E0F239912D11442200E2717B /* DataAnalysis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataAnalysis.h; sourceTree = "<group>"; };
+		E0F239922D11442200E2717B /* DataAnalysis.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = DataAnalysis.c; sourceTree = "<group>"; };
+		E0F239932D11442200E2717B /* DebuggingUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DebuggingUtilities.h; sourceTree = "<group>"; };
+		E0F239942D11442200E2717B /* DebuggingUtilities.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = DebuggingUtilities.c; sourceTree = "<group>"; };
+		E0F239952D11442200E2717B /* FileUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileUtilities.h; sourceTree = "<group>"; };
+		E0F239962D11442200E2717B /* FileUtilities.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = FileUtilities.c; sourceTree = "<group>"; };
+		E0F239972D11442200E2717B /* GeneralUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneralUtilities.h; sourceTree = "<group>"; };
+		E0F239982D11442200E2717B /* GeneralUtilities.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GeneralUtilities.c; sourceTree = "<group>"; };
+		E0F239992D11442200E2717B /* Integrators.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Integrators.h; sourceTree = "<group>"; };
+		E0F2399A2D11442200E2717B /* Integrators.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Integrators.c; sourceTree = "<group>"; };
+		E0F2399B2D11442200E2717B /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		E0F2399E2D11442200E2717B /* StatisticalMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatisticalMethods.h; sourceTree = "<group>"; };
+		E0F2399F2D11442200E2717B /* StatisticalMethods.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = StatisticalMethods.c; sourceTree = "<group>"; };
+		E0F239A02D11442200E2717B /* StringUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringUtilities.h; sourceTree = "<group>"; };
+		E0F239A12D11442200E2717B /* StringUtilities.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = StringUtilities.c; sourceTree = "<group>"; };
+		E0F239AE2D11500D00E2717B /* DataExtraction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataExtraction.h; sourceTree = "<group>"; };
+		E0F239AF2D11500D00E2717B /* DataExtraction.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = DataExtraction.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		E0F2395F2D1141AE00E2717B /* ECE-370_Standardized_CSV_Data_Analysis */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "ECE-370_Standardized_CSV_Data_Analysis";
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E0F2395A2D1141AE00E2717B /* Frameworks */ = {
@@ -44,7 +71,7 @@
 		E0F239542D1141AE00E2717B = {
 			isa = PBXGroup;
 			children = (
-				E0F2395F2D1141AE00E2717B /* ECE-370_Standardized_CSV_Data_Analysis */,
+				E0F239A22D11442200E2717B /* ECE-370_Standardized_CSV_Data_Analysis */,
 				E0F2395E2D1141AE00E2717B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +82,34 @@
 				E0F2395D2D1141AE00E2717B /* ECE-370_Standardized_CSV_Data_Analysis */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E0F239A22D11442200E2717B /* ECE-370_Standardized_CSV_Data_Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				E0F2398F2D11442200E2717B /* CommonDefinitions.h */,
+				E0F239902D11442200E2717B /* CommonDefinitions.c */,
+				E0F239972D11442200E2717B /* GeneralUtilities.h */,
+				E0F239982D11442200E2717B /* GeneralUtilities.c */,
+				E0F239A02D11442200E2717B /* StringUtilities.h */,
+				E0F239A12D11442200E2717B /* StringUtilities.c */,
+				E0F239952D11442200E2717B /* FileUtilities.h */,
+				E0F239962D11442200E2717B /* FileUtilities.c */,
+				E0F239AE2D11500D00E2717B /* DataExtraction.h */,
+				E0F239AF2D11500D00E2717B /* DataExtraction.c */,
+				E0F239992D11442200E2717B /* Integrators.h */,
+				E0F2399A2D11442200E2717B /* Integrators.c */,
+				E0F2399E2D11442200E2717B /* StatisticalMethods.h */,
+				E0F2399F2D11442200E2717B /* StatisticalMethods.c */,
+				E0F239912D11442200E2717B /* DataAnalysis.h */,
+				E0F239922D11442200E2717B /* DataAnalysis.c */,
+				E08399802D42F557004331F0 /* DataSetModeling.h */,
+				E08399812D42F557004331F0 /* DataSetModeling.c */,
+				E0F239932D11442200E2717B /* DebuggingUtilities.h */,
+				E0F239942D11442200E2717B /* DebuggingUtilities.c */,
+				E0F2399B2D11442200E2717B /* main.c */,
+			);
+			path = "ECE-370_Standardized_CSV_Data_Analysis";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +126,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				E0F2395F2D1141AE00E2717B /* ECE-370_Standardized_CSV_Data_Analysis */,
 			);
 			name = "ECE-370_Standardized_CSV_Data_Analysis";
 			packageProductDependencies = (
@@ -120,6 +172,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0F239A42D11442200E2717B /* CommonDefinitions.c in Sources */,
+				E0F239A52D11442200E2717B /* DataAnalysis.c in Sources */,
+				E0F239A62D11442200E2717B /* DebuggingUtilities.c in Sources */,
+				E0F239B02D11500D00E2717B /* DataExtraction.c in Sources */,
+				E0F239A72D11442200E2717B /* FileUtilities.c in Sources */,
+				E0F239A82D11442200E2717B /* GeneralUtilities.c in Sources */,
+				E0F239A92D11442200E2717B /* Integrators.c in Sources */,
+				E08399822D42F557004331F0 /* DataSetModeling.c in Sources */,
+				E0F239AA2D11442200E2717B /* main.c in Sources */,
+				E0F239AC2D11442200E2717B /* StatisticalMethods.c in Sources */,
+				E0F239AD2D11442200E2717B /* StringUtilities.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

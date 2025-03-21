@@ -48,8 +48,9 @@ void print_string_array(char** stringArray, int stringCount, char*label)
 	// Check for NULL input and handle error.
 	if(stringArray == NULL){ perror("\n\nError printing array of strings in 'print_string_array'.");      exit(1); }
 	
-	
-	printf("\n\n%s: ", label);
+	printf("\n\n\n\n\n\n----------------------------------------------------------------\n");
+	printf(" %s:", label);
+	printf("\n----------------------------------------------------------------");
 	for(int i = 0; i < stringCount; i++)
 	{
 		printf("\n	%s", stringArray[i]);
@@ -131,11 +132,11 @@ void print_array(int n, double *data, char*label)
 	}
 	
 	
-	printf("\n\n%s: \n", label);
+	printf("\n\n%s: ", label);
 	// Loop through the characters print
 	for(int i = 0; i < n; i++)
 	{
-		printf("%.17g ", data[i]);
+		printf("\n %-2d 	%.17g ", i, data[i]);
 	}
 	printf("\n");
 }
@@ -254,9 +255,9 @@ void print_data_file(const char* filePathName)
 	
 	printf("\n***********************************************************************");
 	
-	free(fileExtension);
-	free(fileName);
-	deallocate_memory_char_ptr_ptr(fileContents, countFileLines);
+	//free(fileExtension);
+	//free(fileName);
+	//deallocate_memory_char_ptr_ptr(fileContents, countFileLines);
 }
 
 
@@ -281,7 +282,7 @@ void print_file_contents(char** fileContents, int countFileLines)
 	printf("\n\n\n\n\n\nFile Contents: \n");
 	for(int i = 0; i < countFileLines; i++)
 	{
-		printf("\n    Line %d:       %-5s", i, fileContents[i]);
+		printf("\n%-5s", fileContents[i]);
 	}
 }
 
@@ -333,15 +334,15 @@ void print_directory_data_files(const char* directoryPathName)
 	 size_t directoryLength = string_length(directoryPathName);
 	 if(directoryPathName[directoryLength - 1] == '/')
 	 {
-         printf("\nNeed to trim the trailing '/' from the directory name.");
-		 char *trimmedDirectoryPathName = allocate_memory_char_ptr(directoryLength-1); // Allocate memory for the trimmed directory path name
-	     strncpy(trimmedDirectoryPathName, directoryPathName, directoryLength-1); // Copy the trimmed directory path name
-	     printf("\n\nTrimmed Directory Pathname: %s", trimmedDirectoryPathName);
-	     free(directoryPathName); // Free the original directory path name
-	     directoryPathName = allocate_memory_char_ptr(directoryLength-1); // Allocate memory for the directory path name
-	     strncpy(directoryPathName, directoryPathName, directoryLength-1); // Copy the trimmed directory path name
-	     free(trimmedDirectoryPathName); // Free the trimmed directory path name
-	     printf("\n\nDirectory Pathname: %s", directoryPathName);
+	 printf("\nNeed to trim the trailing '/' from the directory name.");
+	 char *trimmedDirectoryPathName = allocate_memory_char_ptr(directoryLength-1); // Allocate memory for the trimmed directory path name
+	 strncpy(trimmedDirectoryPathName, directoryPathName, directoryLength-1); // Copy the trimmed directory path name
+	 printf("\n\nTrimmed Directory Pathname: %s", trimmedDirectoryPathName);
+	 free(directoryPathName); // Free the original directory path name
+	 directoryPathName = allocate_memory_char_ptr(directoryLength-1); // Allocate memory for the directory path name
+	 strncpy(directoryPathName, directoryPathName, directoryLength-1); // Copy the trimmed directory path name
+	 free(trimmedDirectoryPathName); // Free the trimmed directory path name
+	 printf("\n\nDirectory Pathname: %s", directoryPathName);
 	 }**/
 	//char *directoryName = find_directory_name_from_path(directoryPathName);
 	char **filePaths = get_file_pathnames_in_directory(directoryPathName);

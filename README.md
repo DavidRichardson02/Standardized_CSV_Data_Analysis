@@ -6,7 +6,7 @@
   - [4. Organize Data into Structured Directories](#4-organize-data-into-structured-directories)
   - [5. Analyze](#5-analyze)
   - [6. Model](#6-model)
-    - [Visualized Output of MATLAB Scripts When Ran for both (1.) 'physics_particles.txt' dataset and (2.) 'weather_measurements.txt' dataset](#visualized-output-of-matlab-scripts-when-ran-for-both-1-physics_particlestxt-dataset-and-2-weather_measurementstxt-dataset)
+    - [Visualized Output of MATLAB Scripts When Ran, for both example datasets](#visualized-output-of-matlab-scripts-when-ran-for-both-example-datasets)
   - [Final Output in Terminal](#final-output-in-terminal)
     
 - [2. CSV Uniform Schema & Program Assumptions](#2-csv-uniform-schema--program-assumptions)

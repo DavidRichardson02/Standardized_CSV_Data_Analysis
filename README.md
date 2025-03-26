@@ -1,15 +1,43 @@
+## Table of Contents
+- [1. Introduction & High-Level Overview](#1-introduction--high-level-overview)
+  - [1. Read Raw CSV](#1-read-raw-csv)
+  - [2. Preprocess & Clean](#2-preprocess--clean)
+  - [3. Evaluate and Extract](#3-evaluate-and-extract)
+  - [4. Organize Data into Structured Directories](#4-organize-data-into-structured-directories)
+  - [5. Analyze](#5-analyze)
+  - [6. Model](#6-model)
+    - [Visualized Output of MATLAB Scripts When Ran for both (1.) 'physics_particles.txt' dataset and (2.) 'weather_measurements.txt' dataset](#visualized-output-of-matlab-scripts-when-ran-for-both-1-physics_particlestxt-dataset-and-2-weather_measurementstxt-dataset)
+  - [Summary](#summary)
+  - [Final Output in Terminal](#final-output-in-terminal)
+
+- [2. CSV Uniform Schema & Program Assumptions](#2-csv-uniform-schema--program-assumptions)
+  - [1. Interpreting the CSV Structure](#1-interpreting-the-csv-structure)
+  - [2. Uniform Parameterization by Field Count](#2-uniform-parameterization-by-field-count)
+  - [3. Coupling Field Names with Data Types](#3-coupling-field-names-with-data-types)
+  - [4. Preprocessing](#4-preprocessing)
+  - [Why It Matters](#why-it-matters)
+- [3. Detailed Pipeline Explanation (WIP documenting)](#3-detailed-pipeline-explanation-wip-documenting)
+  - [1. CommonDefinitions.h/.c](#1-commondefinitionshc)
+  - [2. GeneralUtilities.h/.c](#2-generalutilitieshc)
+  - [3. StringUtilities.h/.c](#3-stringutilitieshc)
+  - [4. FileUtilities.h/.c](#4-fileutilitieshc)
+  - [5. DataExtraction.h/.c](#5-dataextractionhc)
+  - [6. StatisticalMethods.h/.c](#6-statisticalmethodshc)
+  - [7. DataAnalysis.hc-and-DataSetModeling.hc](#7-dataanalysishc-and-datasetmodelinghc)
+- [4. Conclusion & Key Takeaways](#4-conclusion--key-takeaways)
+
 ## 1. Introduction & High-Level Overview
 
 The project provides a robust and standardized pipeline for reading, parsing,  
 cleaning/preprocessing, analyzing, and modeling data from CSV (or similarly  
 delimited) files. The typical flow this pipeline is designed to handle:
 
-1. **Read Raw CSV:**
+### 1. Read Raw CSV:
    - Input file lines are captured line by line and stored in-memory data
      structures (`char**`), with special functions to detect delimiters (commas,
      semicolons, tabs, etc.).
 <br /><br />
-2. **Preprocess & Clean:**
+### 2. Preprocess & Clean: 
    - Identifying and trimming problematic characters such as whitespaces,
      repeated delimiters, placeholder or missing-value markers (many cases),
      etc.
@@ -22,7 +50,7 @@ delimited) files. The typical flow this pipeline is designed to handle:
 
 <br /><br />
 <br /><br />
-3. **Evaluate and Extract:**
+### 3. Evaluate and Extract:
    - The parameters of each field and identify which fields are plottable and
      which might need special handling using type inference.
    - In the context of this program, any data that can be effectively displayed
@@ -43,7 +71,8 @@ delimited) files. The typical flow this pipeline is designed to handle:
      visualized which is largely not within the scope or purpose of this project.
 
 <br />
-
+**Raw Unmodified Data vs. Preprocessed Extracted Data**
+<br />
 <img width="944" alt="Screenshot 2025-03-19 at 11 16 34 AM" src="https://github.com/user-attachments/assets/abb129d0-67fb-455a-9b96-da0b38d4b331" />
 
 <br />
@@ -54,7 +83,7 @@ delimited) files. The typical flow this pipeline is designed to handle:
 
 
 
-4. **Organize Data into Structured Directories:**
+### 4. Organize Data into Structured Directories:
    - Once field types are identified, each field’s data is split out and
      systematically written to a dedicated file within a custom generated
      directory (located at the same level as the original file path) to act as
@@ -88,14 +117,20 @@ delimited) files. The typical flow this pipeline is designed to handle:
      downstream tools like MATLAB, reduce clutter in intermediate
      computations, and enable a modular approach that readily extends to
      future transformations or data processing features.
-
+     
+<br />
+**Example of Directory Generated for the Plottable Data from the file 'physics_particles.txt'**
+<br />
 <br />
 <img width="442" alt="Screenshot 2025-03-15 at 9 29 39 PM" src="https://github.com/user-attachments/assets/fab982e4-33b1-4708-8bed-da884888b411" />
+<br />
+<br />
+**Example of Directory Generated for the file 'weather_measurements.txt'**
 <br />
 <img width="602" alt="Screenshot 2025-03-19 at 10 56 04 AM" src="https://github.com/user-attachments/assets/9cf40b34-a260-4fcb-ba17-0061f355fe3d" />
 <br /><br />
 
-5. **Analyze:**
+### 5. Analyze:
    - Once the numeric columns have been isolated in separate files, the
      program computes a variety of standard statistics and descriptive
      measures, without the need for repeated parsing or ad hoc cleaning.
@@ -117,6 +152,9 @@ delimited) files. The typical flow this pipeline is designed to handle:
      properties.
 
 <br />
+**Example of Directory Generated for the Analysis Results from the Plottable Data Directory 'physics_particles_Plottable_Fields'**
+<br />
+<br />
 <img width="437" alt="Screenshot 2025-03-15 at 9 59 53 PM" src="https://github.com/user-attachments/assets/b5b8020d-ffd9-448b-ad6e-78545030c904" />
 <br />
 <br />
@@ -124,7 +162,7 @@ delimited) files. The typical flow this pipeline is designed to handle:
 <br />
 
 
-6. **Model:**
+### 6. Model: 
    - The program’s modeling phase builds upon these clean numeric columns
      to generate more advanced plots or fit more sophisticated computational
      models, such as Gaussian error functions, theoretical distributions, or
@@ -146,11 +184,48 @@ delimited) files. The typical flow this pipeline is designed to handle:
      ingestion through final curve-fitting routines.
 
 <br /><br />
-**Final Output in Terminal and Models Visualized in MATLAB**
-
+#### Visualized Output of MATLAB Scripts When Ran for both (1.) 'physics_particles.txt' dataset and (2.) 'weather_measurements.txt' dataset.
+<br />
+<br />
+*(1.) 'physics_particles.txt' Analysis Results Modeling, Generated from Analysis Results Directory 'physics_particles_Plottable_Fields_Full_Analysis_Results'*
+<br />
+* *
+<br />
 <br /><br />
 
 
+<br />
+<br /><br />
+<br />
+
+<img width="2056" alt="physics_particles_model" src="https://github.com/user-attachments/assets/a681d1cb-5709-4c01-8cb5-4d099206bc50" />
+
+<br />
+
+<br />
+<br />
+*(2.) 'weather_measurements.txt' Analysis Results Modeling, Generated from Analysis Results Directory 'weather_measurements_Plottable_Fields_Full_Analysis_Results'*
+<br />
+<img width="2055" alt="weather_measurements_model" src="https://github.com/user-attachments/assets/58ad0442-5667-48c4-8163-adcd23014464" />
+
+<br />
+<br />
+<br />
+<br />
+
+
+### Summary:  
+
+By successively reading, preprocessing, extracting numeric fields into  
+directories, then systematically analyzing and modeling those fields, these stages  
+deliver a coherent, repeatable, and extensible environment for CSV-based data analysis  
+of many forms. Users can conveniently plug in new analysis scripts, numeric  
+transformations, or domain-focused modeling routines, with confidence that the data  
+have been cleaned and structured according to well-defined protocols.
+
+
+
+#### Final Output in Terminal 
 
 ```
 
@@ -615,34 +690,17 @@ delimited) files. The typical flow this pipeline is designed to handle:
 
 ```
 
-<br />
-<br /><br />
-<br />
 
-<img width="2056" alt="physics_particles_model" src="https://github.com/user-attachments/assets/a681d1cb-5709-4c01-8cb5-4d099206bc50" />
 
-<br />
 
-<img width="2055" alt="weather_measurements_model" src="https://github.com/user-attachments/assets/58ad0442-5667-48c4-8163-adcd23014464" />
 
-<br />
+
 <br />
 <br />
 <br />
 
 
-**Summary**:  
 
-By successively reading, preprocessing, extracting numeric fields into  
-directories, then systematically analyzing and modeling those fields, these stages  
-deliver a coherent, repeatable, and extensible environment for CSV-based data analysis  
-of many forms. Users can conveniently plug in new analysis scripts, numeric  
-transformations, or domain-focused modeling routines, with confidence that the data  
-have been cleaned and structured according to well-defined protocols.
-
-<br />
-<br />
-<br />
 
 ---
 <br /><br />
@@ -662,7 +720,7 @@ Below is the overarching philosophy and assumptions the project uses when
 interpreting CSV files (NOTE: How the analysis and modeling phases leverage this  
 uniform schema is omitted here for brevity.):
 <br /><br />
-1. **Interpreting the CSV Structure:**
+### 1. Interpreting the CSV Structure:
 
    - By convention, the first line of the CSV is the header line, the number of  
      comma-separated fields in this header is fixed; subsequent rows must  
@@ -682,7 +740,7 @@ uniform schema is omitted here for brevity.):
      “nonnumeric”), which is inferred from the CSV contents. The program  
      uses that labeling, for instance, to decide which columns can be plotted.
 <br /><br />
-2. **Uniform Parameterization by Field Count:**
+### 2. Uniform Parameterization by Field Count:
 
    - The code that parses a CSV enforces a single, consistent set of fields  
      across all data entries. This is accomplished by counting how many  
@@ -702,7 +760,7 @@ uniform schema is omitted here for brevity.):
      every row can supply a value for mass (or explicitly mark it missing). It also  
      underpins plottability checks, missing-value strategies, and so on.
 <br /><br />
-3. **Coupling Field Names with Data Types:**
+### 3. Coupling Field Names with Data Types:
 
    - Beyond simply splitting data into columns, the project code adds a  
      further type annotation stage for each field. Specifically, the program  
@@ -725,7 +783,7 @@ uniform schema is omitted here for brevity.):
      without significant refactoring. Nonnumeric columns are stored but not  
      fed to numeric-only analysis routines.
 <br /><br />
-4. **Preprocessing**:
+### 4. Preprocessing:
 
    This preprocessing phase underpins the entire program’s  
    compatibility with data and is what makes the standardization of data  
@@ -776,6 +834,9 @@ consider compatible.
    steps in operation without affecting the larger system.
 
 ---
+
+
+
 <br /><br />
 <br /><br />
 ## 3. Detailed Pipeline Explanation (WIP documenting)

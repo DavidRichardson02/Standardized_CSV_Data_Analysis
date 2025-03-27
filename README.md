@@ -16,7 +16,6 @@
   - [4. Preprocessing](#4-preprocessing)
     
 - [3. Detailed Pipeline Explanation (WIP documenting)](#3-detailed-pipeline-explanation-wip-documenting)
-- [4. Conclusion & Key Takeaways](#4-conclusion--key-takeaways)
 
 ## 1. Introduction & High-Level Overview
 
@@ -1049,68 +1048,4 @@ integrate the extensive in-code comments to clarify each function’s role.
   “leg work.”
 
 ---
-<br /><br />
-<br /><br />
-## 4. Conclusion & Key Takeaways
-
-### Conclusion
-
-The code is a modular pipeline for CSV data ingestion, cleaning, extraction,
-analysis, and optional modeling. Each step, from reading lines to generating final
-scripts, is in well-documented `.c/h` files with specialized purposes:
-
-1. **CommonDefinitions / GeneralUtilities**: The foundation (memory helpers,
-   time conversions, radial/merge sorts).
-2. **StringUtilities / FileUtilities**: The heavy lifting for string parsing
-   (trimming, splitting) and file/directory handling.
-3. **DataExtraction**: The main CSV logic—determining field types, extracting
-   numeric fields, writing them out.
-4. **DataAnalysis**: High-level “pipeline orchestration.”
-5. **StatisticalMethods**: Standard stats and histograms for numeric data.
-6. **DataSetModeling**: Analysis and script generation for modeling.
-<br /><br />
-From this uniform approach, it is straightforward to incorporate additional
-transformations or domain-specific modeling steps while maintaining a reliable,
-repeating pattern for all new CSV data sets.
-<br /><br />
-### Key Takeaways
-
-1. **Modular Design**:  
-   The program is deliberately separated into smaller files, each with a clear
-   responsibility—string parsing vs. file I/O vs. statistical methods, etc. This
-   separation fosters maintainability and clarity.
-<br /><br />
-2. **Uniform CSV Assumption**:  
-   The code expects all rows in a CSV to have the same number of fields,
-   matching that of the header. This underlies the entire pipeline’s reliability
-   and the creation of consistent numeric arrays for analysis.
-<br /><br />
-3. **From Raw to Analyzable**:  
-   The program carefully transforms raw CSV lines (often messy) into
-   structured, pruned, and typed data. Numeric fields end up in separate `.txt`
-   files, each suitable for direct numeric analysis or plotting.
-<br /><br />
-4. **Extensible**:  
-   Because the pipeline is mostly “once interpreted, consistently used,” it is
-   straightforward to drop in new analysis routines, new modeling scripts, or
-   new transformations. You can freely introduce new date/time formats
-   (append them to `commonDateTimeFormats[]` in **CommonDefinitions.c**), or
-   add new unit strings to `commonUnitFormats[]`. You might create new
-   analysis routines in **StatisticalMethods.c** or even integrate an R or Python
-   script instead of MATLAB scripts. The pipeline is flexible:
-
-   - If you want to store the cleaned CSV lines (with replaced missing
-     values) in a single new file, just call
-     `DataExtraction::write_data_set(…)`.
-   - If you want advanced outlier detection, you can place that after the
-     numeric columns are extracted, or incorporate it into
-     `format_data_entry_for_plotting(...)`.
-<br /><br />
-5. **Power of Radix Sort**:  
-   A highlight is the specialized `radix_sort_doubles`, which demonstrates
-   bitwise manipulation to handle negative doubles. Though not always
-   needed for typical CSV tasks, it shows advanced usage that can scale to
-   large data sets.
-
-
 
